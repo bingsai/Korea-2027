@@ -3,605 +3,765 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>#KOREA27 — Busan → Seoul · 16–23 Jan 2027</title>
-<meta name="description" content="Itinerary for Busan and Seoul, 16–23 January 2027.">
+<title>Busan & Seoul — 16–23 Jan 2027</title>
+<meta name="description" content="8 days, 2 cities. Our Busan and Seoul trip, 16–23 January 2027.">
+<meta name="theme-color" content="#0b1736">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700;9..144,900&family=Inter:wght@400;500;600;700&family=Noto+Serif+KR:wght@700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,400..800&display=swap" rel="stylesheet">
 <style>
   :root{
-    --ink:#0e1726; --ink-2:#16233a; --ink-3:#1e2f4d;
-    --paper:#f6f1e7; --paper-2:#ece4d3;
-    --red:#d2453a; --teal:#2a9d8f; --gold:#e9b44c; --sky:#8ecae6;
-    --muted:#8a97ad; --line:rgba(255,255,255,.1);
-    --radius:18px;
+    --night:#0b1736;
+    --night-2:#13245a;
+    --ice:#eaf2fb;
+    --snow:#ffffff;
+    --ink:#10172a;
+    --ink-soft:#5a6787;
+    --busan:#13b5b1;
+    --seoul:#6b5bff;
+    --sun:#ffd23f;
+    --rule:#cfdcec;
+    --font:"Bricolage Grotesque",system-ui,sans-serif;
+    --ease:cubic-bezier(.2,.8,.2,1);
   }
   *{box-sizing:border-box;margin:0;padding:0}
-  html{scroll-behavior:smooth;scroll-padding-top:72px}
-  body{font-family:Inter,system-ui,sans-serif;background:var(--ink);color:#e9eef7;line-height:1.6;-webkit-font-smoothing:antialiased}
+  html{scroll-behavior:smooth}
+  body{font-family:var(--font);background:var(--ice);color:var(--ink);font-size:17px;line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden}
   a{color:inherit}
-  .skip{position:absolute;left:-999px;top:8px;background:var(--gold);color:var(--ink);padding:8px 14px;border-radius:8px;z-index:100}
+  :focus-visible{outline:3px solid var(--sun);outline-offset:3px;border-radius:6px}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+  .skip{position:absolute;left:-999px;top:8px;background:var(--sun);color:var(--ink);padding:8px 14px;border-radius:8px;z-index:99}
   .skip:focus{left:8px}
 
-  /* NAV */
-  nav{position:sticky;top:0;z-index:50;background:rgba(14,23,38,.82);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
-  .nav-in{max-width:1180px;margin:auto;display:flex;align-items:center;gap:24px;padding:14px 24px;overflow-x:auto;scrollbar-width:none}
-  .nav-in::-webkit-scrollbar{display:none}
-  .brand{font-family:Fraunces,serif;font-weight:900;font-size:1.15rem;white-space:nowrap;text-decoration:none}
-  .brand span{color:var(--red)}
-  .nav-in a.l{font-size:.86rem;color:var(--muted);text-decoration:none;white-space:nowrap;transition:color .2s}
-  .nav-in a.l:hover{color:#fff}
+  /* progress bar */
+  .progress{position:fixed;top:0;left:0;height:4px;width:100%;transform-origin:0 50%;transform:scaleX(0);background:linear-gradient(90deg,var(--busan),var(--seoul),var(--sun));z-index:60}
 
-  /* HERO */
-  .hero{min-height:calc(100vh - 56px);display:grid;place-items:center;text-align:center;padding:80px 24px 60px;position:relative;overflow:hidden}
-  .hero::before{content:"";position:absolute;inset:0;background:
-     radial-gradient(60% 50% at 20% 20%,rgba(210,69,58,.28),transparent 70%),
-     radial-gradient(50% 50% at 85% 75%,rgba(42,157,143,.25),transparent 70%)}
-  .hanja{position:absolute;font-family:"Noto Serif KR",serif;font-size:min(42vw,520px);line-height:1;color:rgba(255,255,255,.035);top:50%;left:50%;transform:translate(-50%,-52%);pointer-events:none;user-select:none}
-  .hero-in{position:relative;max-width:900px}
-  .kicker{display:inline-block;font-size:.78rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);border:1px solid rgba(233,180,76,.4);padding:6px 14px;border-radius:99px;margin-bottom:28px}
-  h1{font-family:Fraunces,serif;font-weight:900;font-size:clamp(3.4rem,11vw,8.5rem);line-height:.95;letter-spacing:-.03em}
-  h1 .r{color:var(--red)}
-  .route{margin:22px 0 40px;font-size:clamp(1rem,2.4vw,1.3rem);color:#c9d3e3}
-  .route b{color:#fff}
-  .cd{display:flex;justify-content:center;gap:clamp(8px,2vw,18px);flex-wrap:wrap}
-  .cd div{background:rgba(255,255,255,.05);border:1px solid var(--line);border-radius:14px;padding:16px 10px;min-width:92px}
-  .cd strong{display:block;font-family:Fraunces,serif;font-size:clamp(2rem,6vw,3rem);line-height:1}
-  .cd small{font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
-  .cd-note{margin-top:16px;font-size:.85rem;color:var(--muted)}
-  .btn{display:inline-block;margin-top:36px;background:var(--red);color:#fff;text-decoration:none;font-weight:600;padding:14px 28px;border-radius:99px;transition:transform .2s,box-shadow .2s}
-  .btn:hover{transform:translateY(-2px);box-shadow:0 10px 30px rgba(210,69,58,.4)}
-  .scroll{display:block;margin-top:46px;font-size:.72rem;letter-spacing:.3em;text-transform:uppercase;color:var(--muted);animation:bob 2s infinite}
-  @keyframes bob{50%{transform:translateY(6px)}}
+  /* floating nav */
+  .dock{position:fixed;left:50%;bottom:18px;transform:translate(-50%,140%);z-index:50;display:flex;gap:4px;padding:6px;background:rgba(11,23,54,.82);backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,.12);border-radius:99px;transition:transform .5s var(--ease);max-width:calc(100vw - 24px);overflow-x:auto;scrollbar-width:none}
+  .dock::-webkit-scrollbar{display:none}
+  .dock.show{transform:translate(-50%,0)}
+  .dock a{color:#c9d4ee;text-decoration:none;font-size:.86rem;font-weight:600;padding:8px 14px;border-radius:99px;white-space:nowrap;transition:background .2s,color .2s}
+  .dock a:hover,.dock a.on{background:var(--snow);color:var(--ink)}
 
-  /* SECTIONS */
-  section{padding:110px 24px}
-  .wrap{max-width:1180px;margin:auto}
-  .light{background:var(--paper);color:var(--ink)}
-  .light .eyebrow{color:var(--red)}
-  .light p.lead{color:#4a5568}
-  .eyebrow{font-size:.78rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:14px}
-  h2{font-family:Fraunces,serif;font-weight:700;font-size:clamp(2.2rem,5vw,3.6rem);line-height:1.05;letter-spacing:-.02em;max-width:820px}
-  p.lead{font-size:1.1rem;color:#b9c4d6;max-width:680px;margin-top:18px}
-  .grid{display:grid;gap:20px;margin-top:52px}
-  .g2{grid-template-columns:repeat(auto-fit,minmax(320px,1fr))}
-  .g3{grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
-  .g4{grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
-  .card{background:var(--ink-2);border:1px solid var(--line);border-radius:var(--radius);padding:28px;transition:transform .25s,border-color .25s}
-  .card:hover{transform:translateY(-4px);border-color:rgba(255,255,255,.22)}
-  .light .card{background:#fff;border-color:var(--paper-2)}
-  .light .card:hover{border-color:#d8ccb4}
-  .card h3{font-family:Fraunces,serif;font-size:1.45rem;margin-bottom:8px;line-height:1.2}
-  .card p,.card li{font-size:.95rem;color:#b9c4d6}
-  .light .card p,.light .card li{color:#4a5568}
-  .card ul{padding-left:18px;margin-top:10px}
-  .card li{margin:4px 0}
-  .tag{display:inline-block;font-size:.7rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;padding:4px 10px;border-radius:99px;margin-bottom:14px}
-  .t-red{background:rgba(210,69,58,.15);color:var(--red)}
-  .t-teal{background:rgba(42,157,143,.15);color:var(--teal)}
-  .t-gold{background:rgba(233,180,76,.18);color:#b07d16}
-  .dark .t-gold{color:var(--gold)}
+  /* ========== HERO ========== */
+  .hero{position:relative;min-height:100svh;background:radial-gradient(120% 80% at 50% 110%,#2b3f8f 0%,var(--night-2) 35%,var(--night) 70%);color:var(--snow);overflow:hidden;display:flex;flex-direction:column}
+  #snow{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+  .hills{position:absolute;left:0;right:0;bottom:-2px;width:100%;height:auto;pointer-events:none}
+  .hero-top{position:relative;display:flex;justify-content:space-between;padding:22px 24px;font-weight:600;font-size:.92rem;color:#c9d4ee}
+  .hero-in{position:relative;flex:1;display:flex;flex-direction:column;justify-content:center;padding:20px 24px 160px;max-width:1120px;width:100%;margin:0 auto}
+  .title{font-size:clamp(4rem,15vw,12.5rem);font-weight:800;font-stretch:75%;line-height:.82;letter-spacing:-.04em;text-transform:uppercase}
+  .title .row{display:block;overflow:hidden;padding-bottom:.04em}
+  .title .ch{display:inline-block;transform:translateY(105%);animation:rise .9s var(--ease) forwards;animation-delay:calc(var(--i) * 45ms + 150ms)}
+  .title .amp{color:var(--sun);font-stretch:100%}
+  @keyframes rise{to{transform:none}}
+  .sub{margin-top:26px;font-size:clamp(1.1rem,2.4vw,1.45rem);color:#c9d4ee;max-width:34ch;opacity:0;animation:fadeup .9s var(--ease) 1s forwards}
+  @keyframes fadeup{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
 
-  /* letter cards */
-  .letter{font-family:Fraunces,serif;font-weight:900;font-size:4rem;line-height:1;margin-bottom:12px}
-  .c1 .letter{color:var(--red)} .c2 .letter{color:var(--teal)} .c3 .letter{color:var(--gold)} .c4 .letter{color:var(--sky)}
+  .count{display:flex;gap:clamp(8px,2vw,16px);margin-top:40px;flex-wrap:wrap;opacity:0;animation:fadeup .9s var(--ease) 1.2s forwards}
+  .unit{text-align:center}
+  .tiles{display:flex;gap:4px}
+  .tile{position:relative;width:clamp(40px,7vw,64px);height:clamp(56px,10vw,88px);border-radius:12px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);overflow:hidden;font-size:clamp(1.9rem,5.4vw,3.4rem);font-weight:800;font-variant-numeric:tabular-nums}
+  .tile span{position:absolute;inset:0;display:grid;place-items:center;transition:transform .45s var(--ease)}
+  .tile .old{transform:translateY(0)}
+  .tile.flip .old{transform:translateY(-100%)}
+  .tile .new{transform:translateY(100%)}
+  .tile.flip .new{transform:translateY(0)}
+  .unit small{display:block;margin-top:8px;font-size:.8rem;color:#9fb0d6;font-weight:600}
+  .count-note{margin-top:14px;font-size:.92rem;color:#9fb0d6;opacity:0;animation:fadeup .9s var(--ease) 1.35s forwards}
 
-  /* date badges */
-  .date{display:flex;gap:20px;align-items:flex-start}
-  .badge{flex:none;width:76px;text-align:center;border-radius:14px;overflow:hidden;border:1px solid var(--paper-2)}
-  .badge .m{background:var(--red);color:#fff;font-size:.72rem;font-weight:700;letter-spacing:.16em;padding:4px 0}
-  .badge .d{font-family:Fraunces,serif;font-weight:900;font-size:2rem;padding:6px 0;color:var(--ink);background:#fff}
-  .badge.teal .m{background:var(--teal)}
-  .badge.ink .m{background:var(--ink)}
+  .cue{position:absolute;left:50%;bottom:28px;transform:translateX(-50%);color:#9fb0d6;font-size:.82rem;font-weight:600;text-decoration:none;display:flex;flex-direction:column;align-items:center;gap:6px;z-index:2}
+  .cue i{width:2px;height:34px;background:linear-gradient(var(--sun),transparent);animation:drip 1.8s infinite}
+  @keyframes drip{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}51%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
 
-  /* flights */
-  .flight{background:linear-gradient(135deg,var(--ink-2),var(--ink-3));border:1px solid var(--line);border-radius:22px;padding:30px;position:relative;overflow:hidden}
-  .flight::after{content:"";position:absolute;right:-40px;top:-40px;width:160px;height:160px;border-radius:50%;background:rgba(255,255,255,.03)}
-  .f-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:24px;flex-wrap:wrap;gap:10px}
-  .f-top .air{font-weight:600}
-  .f-top .air small{color:var(--muted);font-weight:400;margin-left:8px}
-  .f-row{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:14px}
-  .f-row .t{font-family:Fraunces,serif;font-size:clamp(2rem,5vw,2.8rem);font-weight:700;line-height:1}
-  .f-row .c{font-size:.9rem;color:#c9d3e3;margin-top:6px}
-  .f-row .c b{color:#fff}
-  .f-row .end{text-align:right}
-  .f-mid{text-align:center;color:var(--muted);font-size:.82rem;min-width:90px}
-  .f-mid .ln{height:2px;background:repeating-linear-gradient(90deg,var(--muted) 0 6px,transparent 6px 12px);margin:6px 0;position:relative}
-  .f-mid .ln::after{content:"✈";position:absolute;right:-4px;top:-11px;font-size:16px;color:#fff}
+  /* marquee */
+  .marquee{background:var(--sun);color:var(--ink);overflow:hidden;white-space:nowrap;border-block:2px solid var(--ink);transform:rotate(-1.4deg);margin:-26px -20px 0;position:relative;z-index:3}
+  .marquee div{display:inline-flex;gap:28px;padding:14px 0;animation:slide 38s linear infinite;font-weight:800;font-stretch:80%;font-size:1.25rem;text-transform:uppercase}
+  .marquee span::after{content:"✦";margin-left:28px}
+  @keyframes slide{to{transform:translateX(-50%)}}
 
-  /* big number */
-  .big{font-family:Fraunces,serif;font-weight:900;font-size:clamp(7rem,20vw,14rem);line-height:.85;color:var(--red)}
-  .split{display:grid;grid-template-columns:auto 1fr;gap:48px;align-items:center}
-  @media(max-width:760px){.split{grid-template-columns:1fr;gap:20px}}
+  /* ========== SECTIONS ========== */
+  section{padding:120px 0 0}
+  .h2{font-size:clamp(2.4rem,6.5vw,4.8rem);font-weight:800;font-stretch:78%;line-height:.92;letter-spacing:-.03em;text-transform:uppercase;max-width:14ch}
+  .lede{color:var(--ink-soft);font-size:1.12rem;max-width:56ch;margin-top:18px}
 
-  /* numbered */
-  .num{font-family:Fraunces,serif;font-weight:900;font-size:1rem;color:var(--red);letter-spacing:.1em;margin-bottom:10px}
-  .dark .num{color:var(--gold)}
+  [data-reveal]{opacity:0;transform:translateY(40px);transition:opacity .9s var(--ease),transform .9s var(--ease);transition-delay:var(--d,0ms)}
+  [data-reveal].in{opacity:1;transform:none}
 
-  /* weather */
-  .temp{display:flex;align-items:baseline;gap:10px;margin:8px 0 4px}
-  .temp strong{font-family:Fraunces,serif;font-size:2.8rem;line-height:1}
-  .temp span{color:var(--muted)}
+  /* ========== FLIGHT MAP ========== */
+  .route-sec{height:260vh;padding:0;position:relative}
+  .route-stick{position:sticky;top:0;height:100svh;display:flex;flex-direction:column;justify-content:center;padding:70px 24px 40px}
+  .route-grid{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:32px;align-items:center}
+  @media(max-width:820px){.route-grid{grid-template-columns:1fr;gap:4px}.route-sec{height:220vh}}
+  .legs{list-style:none;margin-top:28px}
+  .legs li{display:flex;gap:14px;align-items:flex-start;padding:12px 0;opacity:.3;transition:opacity .4s,transform .4s var(--ease);transform:translateX(-6px)}
+  .legs li.on{opacity:1;transform:none}
+  .legs .ic{flex:none;width:38px;height:38px;border-radius:12px;display:grid;place-items:center;background:var(--c);color:#fff;font-size:1.05rem}
+  .legs b{display:block;font-size:1.05rem;line-height:1.25}
+  .legs span{font-size:.92rem;color:var(--ink-soft)}
+  @media(max-width:820px){.legs{display:grid;grid-template-columns:1fr 1fr;gap:0 12px;margin-top:10px}.legs li{padding:6px 0}.legs .ic{width:30px;height:30px;font-size:.9rem;border-radius:9px}.legs b{font-size:.92rem}.legs span{font-size:.8rem}.route-sec .h2{font-size:2.2rem}.route-sec .lede{display:none}}
+  .mapsvg{width:100%;height:auto;overflow:visible}
+  .mapsvg .track{fill:none;stroke:var(--rule);stroke-width:3;stroke-dasharray:2 10;stroke-linecap:round}
+  .mapsvg .drawn{fill:none;stroke-width:5;stroke-linecap:round}
+  .mapsvg .city circle.core{fill:var(--snow);stroke:var(--ink);stroke-width:4;transition:fill .4s}
+  .mapsvg .city circle.ring{fill:none;stroke:var(--c);stroke-width:3;opacity:0;transform-box:fill-box;transform-origin:center}
+  .mapsvg .city.on circle.core{fill:var(--c)}
+  .mapsvg .city.on circle.ring{animation:ping 1.6s var(--ease) infinite}
+  @keyframes ping{0%{opacity:.9;transform:scale(1)}100%{opacity:0;transform:scale(2.6)}}
+  .mapsvg text{font-family:var(--font);font-weight:800;font-size:30px;fill:var(--ink);font-stretch:80%;text-transform:uppercase}
+  .mapsvg text.s{font-weight:500;font-size:19px;fill:var(--ink-soft);text-transform:none;font-stretch:100%}
+  #plane{transition:none}
 
-  /* tabs */
-  .tabs{display:flex;gap:8px;margin-top:44px;overflow-x:auto;padding-bottom:6px;scrollbar-width:thin}
-  .tab{flex:none;background:transparent;border:1px solid #d8ccb4;color:var(--ink);font:inherit;font-size:.88rem;font-weight:600;padding:10px 16px;border-radius:99px;cursor:pointer;transition:all .2s;text-align:left;line-height:1.25}
-  .tab small{display:block;font-weight:500;font-size:.7rem;color:#7a6f5c;letter-spacing:.06em}
-  .tab:hover{border-color:var(--ink)}
-  .tab[aria-selected="true"]{background:var(--ink);color:#fff;border-color:var(--ink)}
-  .tab[aria-selected="true"] small{color:var(--gold)}
-  .panel{display:none;margin-top:28px;background:#fff;border:1px solid var(--paper-2);border-radius:22px;padding:clamp(22px,4vw,40px)}
-  .panel.on{display:block;animation:fade .35s}
-  @keyframes fade{from{opacity:0;transform:translateY(8px)}}
-  .p-head{display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:12px;border-bottom:1px solid var(--paper-2);padding-bottom:18px;margin-bottom:8px}
-  .p-head h3{font-family:Fraunces,serif;font-size:clamp(1.6rem,3.5vw,2.2rem);line-height:1.1}
-  .p-head .city{font-size:.75rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;padding:6px 12px;border-radius:99px}
-  .busan{background:rgba(42,157,143,.14);color:var(--teal)}
-  .seoul{background:rgba(210,69,58,.12);color:var(--red)}
-  .tl{list-style:none}
-  .tl li{display:grid;grid-template-columns:96px 1fr;gap:18px;padding:18px 0;border-bottom:1px dashed var(--paper-2)}
-  .tl li:last-child{border-bottom:0}
-  .tl .time{font-weight:700;font-size:.9rem;color:var(--red);padding-top:2px}
-  .tl h4{font-size:1.02rem;margin-bottom:2px}
-  .tl p{font-size:.92rem;color:#5a6577}
-  .tbc{display:inline-block;font-size:.66rem;font-weight:700;letter-spacing:.12em;background:var(--paper-2);color:#7a6f5c;padding:2px 8px;border-radius:6px;margin-left:6px;vertical-align:middle}
-  @media(max-width:560px){.tl li{grid-template-columns:1fr;gap:4px}}
+  /* ========== CHECK-IN ========== */
+  .alert{margin-top:36px;display:flex;gap:18px;align-items:flex-start;background:var(--night);color:var(--snow);padding:24px;border-radius:22px;max-width:760px;position:relative;overflow:hidden}
+  .alert::before{content:"";position:absolute;inset:-40%;background:conic-gradient(from 0deg,transparent 0 70%,rgba(255,210,63,.35) 85%,transparent);animation:spin 6s linear infinite}
+  .alert>*{position:relative}
+  @keyframes spin{to{transform:rotate(1turn)}}
+  .alert .moon{flex:none;font-size:2rem;line-height:1}
+  .alert b{display:block;font-size:1.2rem;margin-bottom:4px}
+  .alert p{color:#c9d4ee}
 
-  /* table */
-  table{width:100%;border-collapse:collapse;margin-top:40px;font-size:.95rem}
-  th,td{text-align:left;padding:14px 16px;border-bottom:1px solid var(--line)}
-  th{font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold)}
-  td:first-child{font-weight:600}
-  td .ko{font-family:"Noto Serif KR",serif;font-size:1.1rem}
-  .tbl-wrap{overflow-x:auto}
+  .tl{position:relative;list-style:none;margin-top:48px;padding-left:44px;max-width:820px}
+  .tl::before{content:"";position:absolute;left:13px;top:6px;bottom:6px;width:3px;background:var(--rule);border-radius:3px}
+  .tl .fill{position:absolute;left:13px;top:6px;width:3px;height:calc(100% - 12px);background:linear-gradient(var(--busan),var(--seoul));border-radius:3px;transform-origin:top;transform:scaleY(var(--p,0))}
+  .tl li{position:relative;padding:0 0 34px}
+  .tl li::before{content:"";position:absolute;left:-39px;top:5px;width:19px;height:19px;border-radius:50%;background:var(--ice);border:4px solid var(--c);transition:background .3s,transform .4s var(--ease)}
+  .tl li.in::before{background:var(--c);transform:scale(1.15)}
+  .when{display:flex;gap:10px;align-items:baseline;flex-wrap:wrap}
+  .when b{font-size:1.5rem;font-weight:800;font-variant-numeric:tabular-nums;letter-spacing:-.02em}
+  .when span{font-size:.92rem;color:var(--ink-soft);font-weight:600}
+  .tl h3{font-size:1.15rem;font-weight:700;margin-top:2px}
+  .tl p{color:var(--ink-soft);max-width:60ch;margin-top:4px}
+  .todo{display:inline-block;font-size:.76rem;font-weight:700;background:var(--sun);color:var(--ink);border-radius:99px;padding:2px 9px;margin-left:8px;vertical-align:3px}
+  .btn{position:relative;display:inline-flex;align-items:center;gap:10px;font:inherit;font-weight:700;background:var(--ink);color:var(--snow);border:0;border-radius:99px;padding:15px 24px;cursor:pointer;overflow:hidden;transition:transform .3s var(--ease)}
+  .btn::after{content:"";position:absolute;inset:0;background:linear-gradient(110deg,transparent 30%,rgba(255,255,255,.3) 50%,transparent 70%);transform:translateX(-100%);transition:transform .7s var(--ease)}
+  .btn:hover{transform:translateY(-3px)}
+  .btn:hover::after{transform:translateX(100%)}
+  .fine{font-size:.88rem;color:var(--ink-soft);margin-top:14px;max-width:62ch}
 
-  /* checklist */
-  .check{list-style:none;padding:0!important}
-  .check li{padding-left:28px;position:relative}
-  .check li::before{content:"";position:absolute;left:0;top:5px;width:16px;height:16px;border:2px solid var(--teal);border-radius:5px}
-  .check li.done::before{background:var(--teal)}
-  .check li{cursor:pointer;user-select:none}
-  .check li.done{text-decoration:line-through;opacity:.55}
+  /* ========== DAYS CAROUSEL ========== */
+  .days-head{display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap}
+  .arrows{display:flex;gap:10px}
+  .arrows button{width:52px;height:52px;border-radius:50%;border:2px solid var(--ink);background:transparent;font-size:1.3rem;cursor:pointer;transition:background .2s,color .2s,transform .2s}
+  .arrows button:hover{background:var(--ink);color:var(--snow)}
+  .arrows button:active{transform:scale(.92)}
+  .rail{display:flex;gap:20px;overflow-x:auto;scroll-snap-type:x mandatory;padding:40px max(24px,calc((100vw - 1120px)/2 + 24px)) 30px;scrollbar-width:none;cursor:grab}
+  .rail::-webkit-scrollbar{display:none}
+  .rail.drag{cursor:grabbing;scroll-snap-type:none}
+  .card{flex:none;width:min(380px,82vw);scroll-snap-align:center;background:var(--snow);border-radius:28px;padding:26px;position:relative;overflow:hidden;transition:transform .5s var(--ease),box-shadow .5s;box-shadow:0 1px 0 var(--rule)}
+  .card:hover{transform:translateY(-8px) rotate(-.6deg);box-shadow:0 30px 60px -30px rgba(16,23,42,.45)}
+  .card .num{position:absolute;right:-8px;top:-34px;font-size:9rem;font-weight:800;font-stretch:75%;color:var(--c);opacity:.14;line-height:1;pointer-events:none}
+  .card .pill{display:inline-block;background:var(--c);color:#fff;font-size:.8rem;font-weight:700;padding:5px 12px;border-radius:99px}
+  .card .today{background:var(--sun);color:var(--ink);margin-left:6px}
+  .card h3{font-size:1.7rem;font-weight:800;font-stretch:85%;line-height:1.05;margin:14px 0 4px;letter-spacing:-.02em}
+  .card .date{color:var(--ink-soft);font-weight:600;font-size:.95rem}
+  .card ul{list-style:none;margin-top:18px;border-top:2px dashed var(--rule)}
+  .card li{display:grid;grid-template-columns:84px 1fr;gap:10px;padding:11px 0;border-bottom:1px solid var(--rule);font-size:.93rem}
+  .card li:last-child{border-bottom:0}
+  .card li .t{font-weight:700;color:var(--c)}
+  .card li b{display:block;font-weight:700}
+  .card li p{color:var(--ink-soft);font-size:.88rem;line-height:1.45}
+  .idea{font-size:.72rem;font-weight:700;color:var(--ink-soft);border:1.5px dashed var(--ink-soft);border-radius:99px;padding:0 7px;margin-left:5px}
+  .card .sleep{margin-top:14px;font-size:.88rem;color:var(--ink-soft)}
+  .card .sleep b{color:var(--ink)}
+  .dots{display:flex;justify-content:center;gap:8px}
+  .dots button{width:10px;height:10px;border-radius:99px;border:0;background:var(--rule);cursor:pointer;transition:width .4s var(--ease),background .3s}
+  .dots button.on{width:34px;background:var(--ink)}
 
-  footer{border-top:1px solid var(--line);padding:56px 24px;text-align:center;color:var(--muted);font-size:.88rem}
-  footer .brand{font-size:1.6rem;display:block;margin-bottom:8px;color:#fff}
+  /* ========== WEATHER ========== */
+  .weather{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px;margin-top:44px}
+  .wx{border-radius:28px;padding:30px;color:var(--snow);position:relative;overflow:hidden;min-height:300px;display:flex;flex-direction:column}
+  .wx.b{background:linear-gradient(160deg,#0f8f8c,var(--busan))}
+  .wx.s{background:linear-gradient(160deg,#3d2fc9,var(--seoul))}
+  .wx h3{font-size:1.5rem;font-weight:800;font-stretch:85%}
+  .wx .when{color:rgba(255,255,255,.8);font-size:.92rem}
+  .temp{display:flex;gap:30px;margin-top:auto;padding-top:30px}
+  .temp div{font-size:.88rem;opacity:.85}
+  .temp b{display:block;font-size:4.2rem;font-weight:800;font-stretch:75%;line-height:.9;letter-spacing:-.04em;opacity:1}
+  .wx p{margin-top:16px;color:rgba(255,255,255,.88);max-width:36ch}
+  .wx .bigicon{position:absolute;right:20px;top:18px;font-size:4.2rem;animation:bob 4s ease-in-out infinite}
+  @keyframes bob{50%{transform:translateY(-10px) rotate(6deg)}}
 
-  .reveal{opacity:0;transform:translateY(24px);transition:opacity .7s,transform .7s}
-  .reveal.in{opacity:1;transform:none}
-  @media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none}.scroll{animation:none}html{scroll-behavior:auto}}
+  .layers{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;margin-top:20px}
+  .layer{background:var(--snow);border-radius:22px;padding:22px;transition:transform .4s var(--ease)}
+  .layer:hover{transform:translateY(-6px)}
+  .layer .e{font-size:2rem}
+  .layer b{display:block;font-size:1.1rem;margin-top:8px}
+  .layer p{color:var(--ink-soft);font-size:.93rem}
+
+  /* ========== PACKING ========== */
+  .packs{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;margin-top:44px}
+  .pack{background:var(--snow);border-radius:28px;padding:26px;position:relative}
+  .pack-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
+  .pack h3{font-size:1.3rem;font-weight:800;font-stretch:85%}
+  .ring{width:54px;height:54px;transform:rotate(-90deg)}
+  .ring circle{fill:none;stroke-width:6}
+  .ring .bg{stroke:var(--rule)}
+  .ring .fg{stroke:var(--seoul);stroke-linecap:round;transition:stroke-dashoffset .6s var(--ease),stroke .3s}
+  .ring.done .fg{stroke:var(--busan)}
+  .ring-wrap{position:relative}
+  .ring-wrap span{position:absolute;inset:0;display:grid;place-items:center;font-size:.8rem;font-weight:700}
+  .check{list-style:none}
+  .check li{display:flex;gap:12px;align-items:center;padding:9px 0;cursor:pointer;user-select:none;border-bottom:1px solid var(--rule);transition:color .3s}
+  .check li:last-child{border-bottom:0}
+  .box{flex:none;width:24px;height:24px;border-radius:8px;border:2px solid var(--ink-soft);display:grid;place-items:center;transition:background .25s,border-color .25s,transform .3s var(--ease)}
+  .box svg{width:14px;height:14px;stroke:#fff;stroke-width:3;fill:none;stroke-dasharray:20;stroke-dashoffset:20;transition:stroke-dashoffset .35s var(--ease) .05s}
+  .check li[aria-checked="true"]{color:var(--ink-soft)}
+  .check li[aria-checked="true"] .box{background:var(--busan);border-color:var(--busan);transform:scale(1.1)}
+  .check li[aria-checked="true"] .box svg{stroke-dashoffset:0}
+  .check li[aria-checked="true"] .lbl{text-decoration:line-through}
+  .confetti{position:fixed;width:9px;height:14px;pointer-events:none;z-index:80;border-radius:2px}
+
+  /* ========== GET AROUND ========== */
+  .bento{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:44px}
+  .bento > div{background:var(--snow);border-radius:24px;padding:22px}
+  .bento .wide{grid-column:span 2;background:var(--night);color:var(--snow)}
+  .bento .wide p{color:#c9d4ee}
+  .bento b{display:block;font-size:1.1rem;margin-bottom:4px}
+  .bento p{font-size:.93rem;color:var(--ink-soft)}
+  .bento .e{font-size:1.8rem;margin-bottom:8px}
+  .phr{list-style:none;margin-top:6px}
+  .phr li{display:flex;justify-content:space-between;gap:12px;padding:7px 0;border-bottom:1px solid rgba(255,255,255,.12);font-size:.95rem}
+  .phr li:last-child{border-bottom:0}
+  .phr em{font-style:normal;font-weight:700;color:var(--sun)}
+  @media(max-width:820px){.bento{grid-template-columns:1fr 1fr}.bento .wide{grid-column:1/-1}}
+
+  footer{margin-top:140px;background:var(--night);color:#9fb0d6;padding:80px 0 120px;position:relative;overflow:hidden}
+  footer .big{font-size:clamp(3rem,12vw,9rem);font-weight:800;font-stretch:75%;line-height:.85;text-transform:uppercase;color:var(--snow);letter-spacing:-.04em}
+  footer .big span{color:var(--sun)}
+  footer p{margin-top:18px}
+
+  @media(prefers-reduced-motion:reduce){
+    *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important}
+    .title .ch{transform:none}
+    [data-reveal]{opacity:1;transform:none}
+    html{scroll-behavior:auto}
+  }
 </style>
 </head>
 <body>
-<a class="skip" href="#overview">Skip to content</a>
+<a class="skip" href="#checkin">Skip to check-in times</a>
+<div class="progress" id="progress"></div>
 
-<nav aria-label="Sections">
-  <div class="nav-in">
-    <a class="brand" href="#top">#KOREA<span>27</span></a>
-    <a class="l" href="#overview">Overview</a>
-    <a class="l" href="#dates">Key Dates</a>
-    <a class="l" href="#flights">Flights</a>
-    <a class="l" href="#stays">Stays</a>
-    <a class="l" href="#busan">Busan Must-Sees</a>
-    <a class="l" href="#programme">Day by Day</a>
-    <a class="l" href="#wear">What to Wear</a>
-    <a class="l" href="#pack">Packing</a>
-    <a class="l" href="#getting-around">Getting Around</a>
-    <a class="l" href="#notes">Notes</a>
-  </div>
+<nav class="dock" id="dock" aria-label="Sections">
+  <a href="#route">Route</a>
+  <a href="#checkin">Check-in</a>
+  <a href="#days">Days</a>
+  <a href="#weather">Weather</a>
+  <a href="#pack">Packing</a>
+  <a href="#around">Getting around</a>
 </nav>
 
-<!-- HERO -->
+<!-- ================= HERO ================= -->
 <header class="hero" id="top">
-  <div class="hanja" aria-hidden="true">한국</div>
+  <canvas id="snow" aria-hidden="true"></canvas>
+  <div class="hero-top"><span>16–23 Jan 2027</span><span>SIN → PUS → SEL → SIN</span></div>
   <div class="hero-in">
-    <span class="kicker">16 — 23 January 2027</span>
-    <h1>#KOREA<span class="r">27</span></h1>
-    <p class="route"><b>Singapore</b> → <b>Busan</b> → <b>Seoul</b> → <b>Singapore</b></p>
-    <div class="cd" role="timer" aria-live="off">
-      <div><strong id="cd-d">00</strong><small>Days</small></div>
-      <div><strong id="cd-h">00</strong><small>Hours</small></div>
-      <div><strong id="cd-m">00</strong><small>Minutes</small></div>
-      <div><strong id="cd-s">00</strong><small>Seconds</small></div>
+    <h1 class="title" aria-label="Busan and Seoul">
+      <span class="row" aria-hidden="true" data-split>Busan</span>
+      <span class="row" aria-hidden="true"><span class="ch amp" style="--i:5">&amp;</span> <span data-split data-start="6">Seoul</span></span>
+    </h1>
+    <p class="sub">8 days, 2 cities, and a lot of layers. Here's the whole plan.</p>
+    <div class="count" role="timer" aria-label="Countdown to departure">
+      <div class="unit"><div class="tiles" data-unit="d"></div><small>days</small></div>
+      <div class="unit"><div class="tiles" data-unit="h"></div><small>hours</small></div>
+      <div class="unit"><div class="tiles" data-unit="m"></div><small>mins</small></div>
+      <div class="unit"><div class="tiles" data-unit="s"></div><small>secs</small></div>
     </div>
-    <p class="cd-note" id="cd-note">until wheels up — Sat 16 Jan, 00:25 (SGT), Changi T4</p>
-    <a class="btn" href="#programme">See the itinerary</a>
-    <span class="scroll">Scroll</span>
+    <p class="count-note" id="count-note">until wheels up at Changi, Sat 16 Jan, 00:25</p>
   </div>
+  <svg class="hills" viewBox="0 0 1440 160" preserveAspectRatio="none" aria-hidden="true">
+    <path d="M0 110 L180 60 L300 95 L470 30 L640 100 L800 55 L960 105 L1120 40 L1280 90 L1440 60 V160 H0Z" fill="#1d3170" opacity=".7"/>
+    <path d="M0 130 L220 95 L380 125 L560 80 L760 130 L940 92 L1130 130 L1300 100 L1440 120 V160 H0Z" fill="#eaf2fb"/>
+  </svg>
+  <a class="cue" href="#route">Scroll<i></i></a>
 </header>
 
+<div class="marquee" aria-hidden="true"><div id="marq"></div></div>
+
 <main>
-<!-- OVERVIEW -->
-<section id="overview" class="light">
-  <div class="wrap reveal">
-    <p class="eyebrow">Overview</p>
-    <h2>Two cities. Eight days. One very cold winter.</h2>
-    <p class="lead">Seaside temples, rooftop views and street food in Busan, then five nights in Hongdae. Here's the plan at a glance.</p>
-    <div class="grid g4">
-      <div class="card c1"><div class="letter">8</div><h3>Days</h3><p>Sat 16 to Sat 23 January 2027.</p></div>
-      <div class="card c2"><div class="letter">2</div><h3>Cities</h3><p>Busan for 2 nights, Seoul for 5 nights.</p></div>
-      <div class="card c3"><div class="letter">3</div><h3>Journeys</h3><p>Two flights and one KTX train between the cities.</p></div>
-      <div class="card c4"><div class="letter">5</div><h3>Busan must-sees</h3><p>Gamcheon, Sky Capsule, Yonggungsa, Luge and Centum City.</p></div>
-    </div>
-  </div>
-</section>
-
-<!-- KEY DATES -->
-<section id="dates" class="light" style="padding-top:0">
-  <div class="wrap reveal">
-    <p class="eyebrow">Key Dates</p>
-    <h2>Mark these on your calendar</h2>
-    <div class="grid g3">
-      <div class="card date"><div class="badge"><div class="m">JAN</div><div class="d">16</div></div>
-        <div><span class="tag t-red">Fly out</span><h3>Singapore → Busan</h3><p>Red-eye at 00:25 from Changi T4. Land at Gimhae 08:05.</p></div></div>
-      <div class="card date"><div class="badge teal"><div class="m">JAN</div><div class="d">18</div></div>
-        <div><span class="tag t-teal">Travel day</span><h3>Busan → Seoul</h3><p>Check out of Lavalse, then take the KTX to Seoul and check in to the Hongdae Airbnb.</p></div></div>
-      <div class="card date"><div class="badge ink"><div class="m">JAN</div><div class="d">23</div></div>
-        <div><span class="tag t-gold">Fly home</span><h3>Seoul → Singapore</h3><p>15:30 from Incheon T1. Home at 21:25, Changi T2.</p></div></div>
-    </div>
-  </div>
-</section>
-
-<!-- FLIGHTS -->
-<section id="flights">
-  <div class="wrap reveal">
-    <p class="eyebrow">Flights</p>
-    <h2>Two flights. Both one way.</h2>
-    <p class="lead">Times are local. Korea is one hour ahead of Singapore (KST = SGT + 1).</p>
-    <div class="grid g2">
-      <div class="flight">
-        <div class="f-top"><span class="air">Jeju Air · 7C2642<small>Economy</small></span><span class="tag t-red" style="margin:0">Sat 16 Jan</span></div>
-        <div class="f-row">
-          <div><div class="t">00:25</div><div class="c"><b>SIN</b> · Changi T4</div></div>
-          <div class="f-mid">6h 40m<div class="ln"></div>direct</div>
-          <div class="end"><div class="t">08:05</div><div class="c"><b>PUS</b> · Gimhae Intl</div></div>
-        </div>
-      </div>
-      <div class="flight">
-        <div class="f-top"><span class="air">Trinity Airways · TW161<small>Economy</small></span><span class="tag t-gold" style="margin:0">Sat 23 Jan</span></div>
-        <div class="f-row">
-          <div><div class="t">15:30</div><div class="c"><b>ICN</b> · Incheon T1</div></div>
-          <div class="f-mid">6h 55m<div class="ln"></div>direct</div>
-          <div class="end"><div class="t">21:25</div><div class="c"><b>SIN</b> · Changi T2</div></div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- STAYS -->
-<section id="stays" class="light">
-  <div class="wrap reveal">
-    <p class="eyebrow">Stays</p>
-    <h2>Ocean view, then the heart of Hongdae</h2>
-    <div class="grid g2">
-      <div class="card">
-        <span class="tag t-teal">Busan · 16–18 Jan · 2 nights</span>
-        <h3>Lavalse Hotel</h3>
-        <p>82 Bongnaenaru-ro, Yeongdo-gu, Busan. At the foot of Yeongdo Bridge, about 10 minutes' walk from Nampo Station (Line 1).</p>
-        <ul>
-          <li>Room: Ondol Ocean View, 3 futons (traditional heated floor)</li>
-          <li>Check-in 15:00 · check-out 11:00. Ask to drop bags early on arrival.</li>
-          <li>Walk to Jagalchi Market, BIFF Square and Nampo-dong</li>
-        </ul>
-      </div>
-      <div class="card">
-        <span class="tag t-red">Seoul · 18–23 Jan · 5 nights</span>
-        <h3>Hongdae Airbnb</h3>
-        <p>5 Wausan-ro 29ma-gil, Mapo-gu, Seoul. In the Hongdae area, near Hongik Univ. Station (Line 2, AREX and Gyeongui–Jungang Line).</p>
-        <ul>
-          <li>AREX goes straight from Seoul Station and Incheon Airport</li>
-          <li>Busking, cafés and late-night food on your doorstep</li>
-          <li>Check-in details: <span class="tbc">ADD</span></li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- BUSAN -->
-<section id="busan">
-  <div class="wrap reveal">
-    <div class="split">
-      <div class="big">5</div>
+<!-- ================= ROUTE ================= -->
+<section class="route-sec" id="route">
+  <div class="route-stick wrap">
+    <div class="route-grid">
       <div>
-        <p class="eyebrow">Busan Must-Sees</p>
-        <h2>Five stops. Two days.</h2>
-        <p class="lead">Gamcheon is close to the hotel. The other four are on the east side, so they're grouped into one day.</p>
+        <h2 class="h2">The route</h2>
+        <p class="lede">Fly into Busan, take the fast train up to Seoul, then fly home from Incheon. Keep scrolling to follow it.</p>
+        <ol class="legs" id="legs">
+          <li style="--c:var(--busan)"><span class="ic">✈</span><div><b>Changi → Busan</b><span>Sat 16 Jan, 00:25–08:05</span></div></li>
+          <li style="--c:var(--busan)"><span class="ic">🏨</span><div><b>2 nights in Busan</b><span>Lavalse Hotel, Yeongdo</span></div></li>
+          <li style="--c:var(--seoul)"><span class="ic">🚄</span><div><b>KTX to Seoul</b><span>Mon 18 Jan, ~2.5 hrs</span></div></li>
+          <li style="--c:var(--seoul)"><span class="ic">🏠</span><div><b>5 nights in Seoul</b><span>Airbnb in Hongdae</span></div></li>
+          <li style="--c:var(--ink)"><span class="ic">✈</span><div><b>Incheon → Changi</b><span>Sat 23 Jan, 15:30–21:25</span></div></li>
+        </ol>
+      </div>
+      <svg class="mapsvg" viewBox="0 0 640 560" role="img" aria-label="Flight path from Singapore to Busan, train to Seoul, flight back to Singapore">
+        <defs>
+          <linearGradient id="g" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#13b5b1"/><stop offset=".55" stop-color="#6b5bff"/><stop offset="1" stop-color="#10172a"/></linearGradient>
+        </defs>
+        <path class="track" d="M110 480 C 200 300, 420 260, 520 150 L 380 90 C 300 230, 220 380, 110 480"/>
+        <path class="drawn" id="drawn" stroke="url(#g)" d="M110 480 C 200 300, 420 260, 520 150 L 380 90 C 300 230, 220 380, 110 480"/>
+        <g class="city" id="c-sin" style="--c:var(--ink)"><circle class="ring" cx="110" cy="480" r="12"/><circle class="core" cx="110" cy="480" r="12"/><text x="140" y="500">Singapore</text><text class="s" x="140" y="524">Start and finish</text></g>
+        <g class="city" id="c-pus" style="--c:var(--busan)"><circle class="ring" cx="520" cy="150" r="12"/><circle class="core" cx="520" cy="150" r="12"/><text x="470" y="210">Busan</text><text class="s" x="470" y="234">16–18 Jan</text></g>
+        <g class="city" id="c-sel" style="--c:var(--seoul)"><circle class="ring" cx="380" cy="90" r="12"/><circle class="core" cx="380" cy="90" r="12"/><text x="200" y="80">Seoul</text><text class="s" x="200" y="104">18–23 Jan</text></g>
+        <g id="plane"><circle r="20" fill="#ffd23f"/><text x="0" y="8" text-anchor="middle" style="font-size:22px;fill:#10172a">✈</text></g>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CHECK-IN ================= -->
+<section id="checkin">
+  <div class="wrap">
+    <h2 class="h2" data-reveal>Check-in & check-out</h2>
+    <p class="lede" data-reveal style="--d:100ms">Every time you need to be somewhere or check in online, in order. Times are local: Singapore is GMT+8, Korea is GMT+9.</p>
+
+    <div class="alert" data-reveal style="--d:150ms">
+      <span class="moon" aria-hidden="true">🌙</span>
+      <div><b>We leave for Changi on Friday night, 15 Jan.</b>
+      <p>The flight is at 00:25, so it's technically Saturday. Be at Terminal 4 by about 21:30 on Friday.</p></div>
+    </div>
+
+    <ol class="tl" id="tl"><span class="fill" aria-hidden="true"></span></ol>
+
+    <button class="btn" id="ics" type="button" data-reveal>📅 Add these to my calendar</button>
+    <p class="fine">Downloads a calendar file with every check-in that has a confirmed time, plus a reminder an hour before each one. Airline windows follow their usual policy, so check your booking emails nearer the date. Door codes and booking references are left off on purpose, since the site is public.</p>
+  </div>
+</section>
+
+<!-- ================= DAYS ================= -->
+<section id="days">
+  <div class="wrap days-head">
+    <div>
+      <h2 class="h2" data-reveal>Day by day</h2>
+      <p class="lede" data-reveal style="--d:100ms">Swipe or drag through the week. Anything marked <span class="idea">idea</span> isn't booked yet.</p>
+    </div>
+    <div class="arrows" data-reveal style="--d:200ms">
+      <button type="button" id="prev" aria-label="Previous day">←</button>
+      <button type="button" id="next" aria-label="Next day">→</button>
+    </div>
+  </div>
+  <div class="rail" id="rail" tabindex="0" aria-label="Days of the trip"></div>
+  <div class="dots" id="dots"></div>
+</section>
+
+<!-- ================= WEATHER ================= -->
+<section id="weather">
+  <div class="wrap">
+    <h2 class="h2" data-reveal>It's going to be cold</h2>
+    <p class="lede" data-reveal style="--d:100ms">Typical January temperatures, not a forecast. Coming from 31°C, Seoul is going to be a shock.</p>
+    <div class="weather">
+      <div class="wx b" data-reveal>
+        <span class="bigicon" aria-hidden="true">🌊</span>
+        <h3>Busan</h3><span class="when">16–18 Jan</span>
+        <div class="temp"><div><b data-count="7">0°</b>day</div><div><b data-count="-1">0°</b>night</div></div>
+        <p>Milder, but the wind off the sea at Yonggungsa and on the Sky Capsule bites.</p>
+      </div>
+      <div class="wx s" data-reveal style="--d:120ms">
+        <span class="bigicon" aria-hidden="true">❄️</span>
+        <h3>Seoul</h3><span class="when">18–23 Jan</span>
+        <div class="temp"><div><b data-count="1">0°</b>day</div><div><b data-count="-7">0°</b>night</div></div>
+        <p>Dry and freezing. Cold snaps can go below -10°C. Indoors is heated, so dress to peel off.</p>
       </div>
     </div>
-    <div class="grid g3">
-      <div class="card"><div class="num">01</div><span class="tag t-teal">West · Day 1</span><h3>Gamcheon Culture Village</h3><p>Pastel hillside houses, murals and alleys. About 30 minutes by bus from the hotel area.</p></div>
-      <div class="card"><div class="num">02</div><span class="tag t-red">East · Day 2</span><h3>Haedong Yonggungsa</h3><p>A Buddhist temple built on the rocks by the sea. Go early to beat the crowds.</p></div>
-      <div class="card"><div class="num">03</div><span class="tag t-red">East · Day 2</span><h3>Skyline Luge</h3><p>Gravity karts in Osiria, close to Yonggungsa. Buy a multi-ride pass.</p></div>
-      <div class="card"><div class="num">04</div><span class="tag t-red">East · Day 2</span><h3>Haeundae Sky Capsule</h3><p>Tiny coloured pods along the coastal rail between Mipo and Cheongsapo. Book a slot ahead.</p></div>
-      <div class="card"><div class="num">05</div><span class="tag t-red">East · Day 2</span><h3>Shinsegae Centum City</h3><p>A huge department store with Spa Land inside. Good place to warm up in the evening.</p></div>
+    <div class="layers">
+      <div class="layer" data-reveal><span class="e">🧦</span><b>Base layer</b><p>Thermal top and leggings, every single day.</p></div>
+      <div class="layer" data-reveal style="--d:80ms"><span class="e">🧶</span><b>Mid layer</b><p>A sweater or fleece you can take off in shops.</p></div>
+      <div class="layer" data-reveal style="--d:160ms"><span class="e">🧥</span><b>Outer layer</b><p>A long padded coat that blocks wind and covers your hips.</p></div>
+      <div class="layer" data-reveal style="--d:240ms"><span class="e">🧤</span><b>Extras</b><p>Beanie, scarf, touchscreen gloves and waterproof shoes.</p></div>
     </div>
   </div>
 </section>
 
-<!-- PROGRAMME -->
-<section id="programme" class="light">
-  <div class="wrap reveal">
-    <p class="eyebrow">Full Itinerary</p>
-    <h2>The day-by-day plan</h2>
-    <p class="lead">Items marked <span class="tbc">TBC</span> are ideas, not bookings yet. Swap them for your own plans.</p>
-
-    <div class="tabs" role="tablist" aria-label="Days">
-      <button class="tab" role="tab" aria-selected="true" aria-controls="d1" id="t1">Sat 16<small>BUSAN</small></button>
-      <button class="tab" role="tab" aria-selected="false" aria-controls="d2" id="t2">Sun 17<small>BUSAN</small></button>
-      <button class="tab" role="tab" aria-selected="false" aria-controls="d3" id="t3">Mon 18<small>→ SEOUL</small></button>
-      <button class="tab" role="tab" aria-selected="false" aria-controls="d4" id="t4">Tue 19<small>SEOUL</small></button>
-      <button class="tab" role="tab" aria-selected="false" aria-controls="d5" id="t5">Wed 20<small>SEOUL</small></button>
-      <button class="tab" role="tab" aria-selected="false" aria-controls="d6" id="t6">Thu 21<small>SEOUL</small></button>
-      <button class="tab" role="tab" aria-selected="false" aria-controls="d7" id="t7">Fri 22<small>SEOUL</small></button>
-      <button class="tab" role="tab" aria-selected="false" aria-controls="d8" id="t8">Sat 23<small>HOME</small></button>
-    </div>
-
-    <div class="panel on" id="d1" role="tabpanel" aria-labelledby="t1">
-      <div class="p-head"><h3>Day 1 — Land in Busan</h3><span class="city busan">Busan</span></div>
-      <ul class="tl">
-        <li><span class="time">00:25</span><div><h4>Depart Changi T4</h4><p>Jeju Air 7C2642. Get some sleep on the plane.</p></div></li>
-        <li><span class="time">08:05</span><div><h4>Arrive Gimhae (PUS)</h4><p>Clear immigration, buy a T-money card at a convenience store and get some won.</p></div></li>
-        <li><span class="time">~09:30</span><div><h4>Train to the hotel</h4><p>Busan–Gimhae Light Rail to Sasang, Line 2 to Seomyeon, then Line 1 to Nampo (Exit 6). Walk about 10 minutes across Yeongdo Bridge.</p></div></li>
-        <li><span class="time">Late AM</span><div><h4>Drop bags at Lavalse</h4><p>Check-in is 15:00, so ask the front desk to hold your luggage.</p></div></li>
-        <li><span class="time">Afternoon</span><div><h4>Gamcheon Culture Village</h4><p>Mural alleys, rooftop viewpoints and the Little Prince statue.</p></div></li>
-        <li><span class="time">Evening</span><div><h4>Nampo-dong &amp; Jagalchi</h4><p>Seafood at Jagalchi, street snacks at BIFF Square and Gukje Market. Early night.</p></div></li>
-      </ul>
-    </div>
-
-    <div class="panel" id="d2" role="tabpanel" aria-labelledby="t2">
-      <div class="p-head"><h3>Day 2 — The east coast run</h3><span class="city busan">Busan</span></div>
-      <ul class="tl">
-        <li><span class="time">Early AM</span><div><h4>Haedong Yonggungsa</h4><p>Sunrise or early morning at the sea temple, before the crowds arrive.</p></div></li>
-        <li><span class="time">Late AM</span><div><h4>Skyline Luge Busan</h4><p>Close by in Osiria. Ride a few laps.</p></div></li>
-        <li><span class="time">Lunch</span><div><h4>Haeundae / Mipo</h4><p>Lunch near the beach. <span class="tbc">TBC</span></p></div></li>
-        <li><span class="time">Afternoon</span><div><h4>Haeundae Sky Capsule</h4><p>Pre-booked slot from Mipo to Cheongsapo, with sea views the whole way.</p></div></li>
-        <li><span class="time">Evening</span><div><h4>Shinsegae Centum City</h4><p>Shopping, the food hall and Spa Land to thaw out. Back to Yeongdo for the night.</p></div></li>
-      </ul>
-    </div>
-
-    <div class="panel" id="d3" role="tabpanel" aria-labelledby="t3">
-      <div class="p-head"><h3>Day 3 — KTX to Seoul</h3><span class="city seoul">Busan → Seoul</span></div>
-      <ul class="tl">
-        <li><span class="time">By 11:00</span><div><h4>Check out of Lavalse</h4><p>About a 10-minute taxi to Busan Station.</p></div></li>
-        <li><span class="time">Midday</span><div><h4>KTX Busan → Seoul Station</h4><p>About 2.5 hours. Book seats ahead on the Korail site or app. Train time: <span class="tbc">ADD</span></p></div></li>
-        <li><span class="time">Afternoon</span><div><h4>AREX to Hongik Univ.</h4><p>All-stop AREX from Seoul Station, a few stops. Walk to the Airbnb at 5 Wausan-ro 29ma-gil.</p></div></li>
-        <li><span class="time">Evening</span><div><h4>Hongdae night out</h4><p>Street buskers, Korean BBQ and some late-night shopping.</p></div></li>
-      </ul>
-    </div>
-
-    <div class="panel" id="d4" role="tabpanel" aria-labelledby="t4">
-      <div class="p-head"><h3>Day 4 — Palaces &amp; hanok</h3><span class="city seoul">Seoul</span></div>
-      <ul class="tl">
-        <li><span class="time">Morning</span><div><h4>Gyeongbokgung Palace <span class="tbc">TBC</span></h4><p>Rent a hanbok nearby and you get in free. Watch the changing of the guard.</p></div></li>
-        <li><span class="time">Afternoon</span><div><h4>Bukchon Hanok Village &amp; Insadong <span class="tbc">TBC</span></h4><p>Walk the hanok lanes, then tea houses and crafts in Insadong.</p></div></li>
-        <li><span class="time">Evening</span><div><h4>Gwangjang Market <span class="tbc">TBC</span></h4><p>Bindaetteok, mayak gimbap and yukhoe.</p></div></li>
-      </ul>
-    </div>
-
-    <div class="panel" id="d5" role="tabpanel" aria-labelledby="t5">
-      <div class="p-head"><h3>Day 5 — Shopping &amp; skyline</h3><span class="city seoul">Seoul</span></div>
-      <ul class="tl">
-        <li><span class="time">Morning</span><div><h4>Seongsu-dong <span class="tbc">TBC</span></h4><p>Pop-up stores, concept shops and warehouse cafés.</p></div></li>
-        <li><span class="time">Afternoon</span><div><h4>Myeongdong <span class="tbc">TBC</span></h4><p>Skincare haul and street food stalls.</p></div></li>
-        <li><span class="time">Evening</span><div><h4>N Seoul Tower <span class="tbc">TBC</span></h4><p>Cable car up Namsan for the night view.</p></div></li>
-      </ul>
-    </div>
-
-    <div class="panel" id="d6" role="tabpanel" aria-labelledby="t6">
-      <div class="p-head"><h3>Day 6 — Day trip</h3><span class="city seoul">Seoul</span></div>
-      <ul class="tl">
-        <li><span class="time">All day</span><div><h4>Pick one <span class="tbc">TBC</span></h4><p>A ski or snow day at a resort near Seoul, Nami Island with the Garden of Morning Calm, or a DMZ tour (book in advance).</p></div></li>
-        <li><span class="time">Evening</span><div><h4>Yeonnam-dong <span class="tbc">TBC</span></h4><p>Walk back through Gyeongui Line Forest Park, next to Hongdae, for dinner.</p></div></li>
-      </ul>
-    </div>
-
-    <div class="panel" id="d7" role="tabpanel" aria-labelledby="t7">
-      <div class="p-head"><h3>Day 7 — Last full day</h3><span class="city seoul">Seoul</span></div>
-      <ul class="tl">
-        <li><span class="time">Morning</span><div><h4>Ikseon-dong <span class="tbc">TBC</span></h4><p>Hanok cafés and brunch.</p></div></li>
-        <li><span class="time">Afternoon</span><div><h4>COEX &amp; Starfield Library <span class="tbc">TBC</span></h4><p>Go indoors if it's freezing. Fill any gaps on the souvenir list.</p></div></li>
-        <li><span class="time">Evening</span><div><h4>Han River / farewell dinner <span class="tbc">TBC</span></h4><p>Pack tonight. Your flight is in the afternoon tomorrow.</p></div></li>
-      </ul>
-    </div>
-
-    <div class="panel" id="d8" role="tabpanel" aria-labelledby="t8">
-      <div class="p-head"><h3>Day 8 — Fly home</h3><span class="city seoul">Seoul → Singapore</span></div>
-      <ul class="tl">
-        <li><span class="time">Morning</span><div><h4>Check out &amp; last breakfast</h4><p>Pick up last-minute convenience-store snacks.</p></div></li>
-        <li><span class="time">~11:30</span><div><h4>AREX to Incheon T1</h4><p>All-stop train from Hongik Univ. takes about an hour. Aim to reach the airport by 12:30.</p></div></li>
-        <li><span class="time">15:30</span><div><h4>Depart Incheon T1</h4><p>Trinity Airways TW161.</p></div></li>
-        <li><span class="time">21:25</span><div><h4>Land at Changi T2</h4><p>Home. 집에 왔다!</p></div></li>
-      </ul>
-    </div>
+<!-- ================= PACKING ================= -->
+<section id="pack">
+  <div class="wrap">
+    <h2 class="h2" data-reveal>Pack list</h2>
+    <p class="lede" data-reveal style="--d:100ms">Tick things off as you pack. Finish a whole list and see what happens. Ticks are saved on this device.</p>
+    <div class="packs" id="packs"></div>
   </div>
 </section>
 
-<!-- WEAR -->
-<section id="wear">
-  <div class="wrap reveal">
-    <p class="eyebrow">What to Wear</p>
-    <h2>Dress in layers. Seoul in January is properly cold.</h2>
-    <p class="lead">Typical January temperatures are below. Seoul often goes well below zero, and wind makes it feel colder. Check the forecast a week before you fly.</p>
-    <div class="grid g2">
-      <div class="card"><span class="tag t-teal">Busan · 16–18 Jan</span>
-        <div class="temp"><strong>~7°</strong><span>high</span><strong style="font-size:2rem;margin-left:12px">~-1°</strong><span>low</span></div>
-        <p>Milder but windy by the sea, especially at Yonggungsa and on the Sky Capsule line.</p></div>
-      <div class="card"><span class="tag t-red">Seoul · 18–23 Jan</span>
-        <div class="temp"><strong>~1°</strong><span>high</span><strong style="font-size:2rem;margin-left:12px">~-7°</strong><span>low</span></div>
-        <p>Dry and freezing. Cold snaps can drop below -10°C.</p></div>
-    </div>
-    <div class="grid g4">
-      <div class="card"><div class="num">01</div><h3>Base layer</h3><p>Thermal top and leggings (Heattech or similar). Wear them every day.</p></div>
-      <div class="card"><div class="num">02</div><h3>Mid layer</h3><p>A knit sweater or fleece. Indoors is heated, so it should come off easily.</p></div>
-      <div class="card"><div class="num">03</div><h3>Outer layer</h3><p>A long padded coat that's windproof and covers your hips.</p></div>
-      <div class="card"><div class="num">04</div><h3>Extremities</h3><p>Beanie, scarf, touchscreen gloves, warm socks and comfy waterproof shoes.</p></div>
-    </div>
-  </div>
-</section>
-
-<!-- PACK -->
-<section id="pack" class="light">
-  <div class="wrap reveal">
-    <p class="eyebrow">Packing</p>
-    <h2>Bring what you need. Buy the rest in Olive Young.</h2>
-    <p class="lead">Tap an item to tick it off. Your ticks are saved on this device.</p>
-    <div class="grid g3">
-      <div class="card"><span class="tag t-red">Documents</span><h3>Don't leave without</h3>
-        <ul class="check" data-k="docs">
-          <li>Passport (6+ months validity)</li>
-          <li>Flight bookings (both legs)</li>
-          <li>Lavalse confirmation</li>
-          <li>Airbnb address &amp; check-in info</li>
-          <li>KTX tickets</li>
-          <li>Travel insurance</li>
-          <li>Entry requirements checked (K-ETA / arrival card)</li>
-        </ul></div>
-      <div class="card"><span class="tag t-teal">Clothes</span><h3>Winter kit</h3>
-        <ul class="check" data-k="clothes">
-          <li>Thermal tops &amp; bottoms ×3</li>
-          <li>Padded long coat</li>
-          <li>Sweaters / fleece ×2–3</li>
-          <li>Beanie, scarf, gloves</li>
-          <li>Wool socks</li>
-          <li>Waterproof walking shoes</li>
-          <li>Swimwear? (only if visiting a spa)</li>
-        </ul></div>
-      <div class="card"><span class="tag t-gold">Gear &amp; care</span><h3>Small stuff</h3>
-        <ul class="check" data-k="gear">
-          <li>Power bank (in cabin bag)</li>
-          <li>Type C/F plug adapter (220V)</li>
-          <li>eSIM / data plan</li>
-          <li>Heavy moisturiser &amp; lip balm</li>
-          <li>Hand warmers (or buy at a convenience store)</li>
-          <li>Foldable tote for shopping</li>
-          <li>Some cash in won</li>
-        </ul></div>
-    </div>
-  </div>
-</section>
-
-<!-- GETTING AROUND -->
-<section id="getting-around">
-  <div class="wrap reveal">
-    <p class="eyebrow">Getting Around</p>
-    <h2>One card, three apps</h2>
-    <div class="grid g4">
-      <div class="card"><div class="num">01</div><h3>T-money</h3><p>A tap card for subways and buses in both cities. Buy and top it up at convenience stores.</p></div>
-      <div class="card"><div class="num">02</div><h3>Naver Map</h3><p>Google Maps directions are limited in Korea, so use Naver or KakaoMap for transit.</p></div>
-      <div class="card"><div class="num">03</div><h3>Kakao T</h3><p>For taxis, especially with luggage or late at night.</p></div>
-      <div class="card"><div class="num">04</div><h3>Papago</h3><p>Translates menus and signs with your camera.</p></div>
-    </div>
-  </div>
-</section>
-
-<!-- NOTES -->
-<section id="notes" class="light">
-  <div class="wrap reveal">
-    <p class="eyebrow">Notes</p>
-    <h2>The fine print</h2>
-    <div class="grid g2">
-      <div class="card"><h3>Handy phrases</h3>
-        <ul>
-          <li><b>Annyeonghaseyo</b> (안녕하세요): Hello</li>
-          <li><b>Kamsahamnida</b> (감사합니다): Thank you</li>
-          <li><b>Igeo juseyo</b> (이거 주세요): This one, please</li>
-          <li><b>Eolmayeyo?</b> (얼마예요?): How much?</li>
-          <li><b>Hwajangsil eodiyeyo?</b> (화장실 어디예요?): Where's the toilet?</li>
-        </ul></div>
-      <div class="card"><h3>Good to know</h3>
-        <ul>
-          <li>Korea is SGT + 1 hour.</li>
-          <li>Emergency: 112 for police, 119 for fire and ambulance. Tourist helpline: 1330.</li>
-          <li>Ondol rooms have heated floors, so sleeping on futons is normal.</li>
-          <li>Booking references are kept off this page on purpose. Find them in your apps.</li>
-        </ul></div>
+<!-- ================= GETTING AROUND ================= -->
+<section id="around">
+  <div class="wrap">
+    <h2 class="h2" data-reveal>Getting around</h2>
+    <div class="bento">
+      <div data-reveal><div class="e">💳</div><b>T-money card</b><p>Works like EZ-Link on trains and buses in both cities. Top up at convenience stores.</p></div>
+      <div data-reveal style="--d:80ms"><div class="e">🗺️</div><b>Naver Map</b><p>Google Maps can't do walking or driving directions in Korea. Use Naver or KakaoMap.</p></div>
+      <div data-reveal style="--d:160ms"><div class="e">🚕</div><b>Kakao T</b><p>Korea's Grab, for taxis. Handy with luggage.</p></div>
+      <div data-reveal style="--d:240ms"><div class="e">📷</div><b>Papago</b><p>Point your camera at menus and signs to translate them.</p></div>
+      <div class="wide" data-reveal>
+        <b>Phrases worth knowing</b>
+        <ul class="phr">
+          <li><span>Hello</span><em>annyeonghaseyo</em></li>
+          <li><span>Thank you</span><em>kamsahamnida</em></li>
+          <li><span>This one, please</span><em>igeo juseyo</em></li>
+          <li><span>How much?</span><em>eolmayeyo?</em></li>
+        </ul>
+      </div>
+      <div class="wide" data-reveal style="--d:100ms">
+        <b>If something goes wrong</b>
+        <ul class="phr">
+          <li><span>Police</span><em>112</em></li>
+          <li><span>Fire and ambulance</span><em>119</em></li>
+          <li><span>Travel helpline, in English</span><em>1330</em></li>
+          <li><span>Time difference</span><em>Korea = SG + 1 hr</em></li>
+        </ul>
+      </div>
     </div>
   </div>
 </section>
 </main>
 
 <footer>
-  <span class="brand">#KOREA<span style="color:var(--red)">27</span></span>
-  Busan → Seoul · 16–23 January 2027<br>
-  <a href="#top" style="color:var(--muted)">Back to top ↑</a>
+  <div class="wrap">
+    <div class="big" data-reveal>See you<br>in <span>Busan</span></div>
+    <p>16–23 January 2027. <a href="#top">Back to the top</a></p>
+  </div>
 </footer>
 
 <script>
-// Countdown to departure: Sat 16 Jan 2027 00:25 SGT
-(function(){
-  const target = new Date('2027-01-16T00:25:00+08:00').getTime();
-  const home   = new Date('2027-01-23T21:25:00+08:00').getTime();
-  const el = id => document.getElementById(id);
-  const pad = n => String(n).padStart(2,'0');
-  function tick(){
-    const now = Date.now();
-    let diff = target - now;
-    if (diff <= 0){
-      el('cd-note').textContent = now < home ? 'We\'re in Korea! 🇰🇷' : 'Trip complete. Thanks, Korea!';
-      diff = 0;
-    }
-    el('cd-d').textContent = pad(Math.floor(diff/864e5));
-    el('cd-h').textContent = pad(Math.floor(diff/36e5)%24);
-    el('cd-m').textContent = pad(Math.floor(diff/6e4)%60);
-    el('cd-s').textContent = pad(Math.floor(diff/1e3)%60);
-  }
-  tick(); setInterval(tick,1000);
-})();
+/* =================================================================
+   EDIT THE TRIP HERE — the page is built from these lists.
+   ================================================================= */
+const CHECKINS = [
+  { when:"2027-01-15T00:25:00+08:00", day:"Fri 15 Jan", time:"00:25", c:"busan",
+    title:"Jeju Air online check-in opens",
+    note:"Check in for 7C2642 on the Jeju Air app or website. It usually opens 24 hours before departure. Buy extra baggage online before the flight, because it's cheaper than paying at the counter." },
+  { when:"2027-01-15T21:25:00+08:00", day:"Fri 15 Jan", time:"21:25", c:"busan",
+    title:"Be at Changi Terminal 4",
+    note:"Counters usually open 3 hours before departure and close 1 hour before, around 23:25." },
+  { when:"2027-01-16T00:25:00+08:00", day:"Sat 16 Jan", time:"00:25", c:"busan", noCal:true,
+    title:"Fly to Busan on Jeju Air 7C2642", note:"Lands at Gimhae at 08:05, Korea time." },
+  { when:"2027-01-16T15:00:00+09:00", day:"Sat 16 Jan", time:"15:00", c:"busan",
+    title:"Check in at Lavalse Hotel",
+    note:"82 Bongnaenaru-ro, Yeongdo-gu. We'll arrive around 10:30, so ask the front desk to hold our bags until the room is ready. Room: Ondol Ocean View with 3 futons." },
+  { when:"2027-01-18T11:00:00+09:00", day:"Mon 18 Jan", time:"11:00", c:"busan",
+    title:"Check out of Lavalse",
+    note:"Then a 10-minute taxi to Busan Station for the KTX." },
+  { when:null, day:"Mon 18 Jan", time:"TBC", c:"seoul", todo:true,
+    title:"Check in at the Hongdae Airbnb",
+    note:"5 Wausan-ro 29ma-gil, Mapo-gu. Add the check-in time and how we get in (keypad, lockbox or meeting the host), but not the code itself." },
+  { when:"2027-01-22T15:30:00+09:00", day:"Fri 22 Jan", time:"15:30", c:"seoul",
+    title:"Trinity Airways online check-in opens",
+    note:"For TW161. Online check-in usually runs from 24 hours to 1 hour before departure. If it isn't available for this route, use a kiosk at the airport." },
+  { when:null, day:"Sat 23 Jan", time:"TBC", c:"seoul", todo:true,
+    title:"Check out of the Airbnb",
+    note:"Add the check-out time and what the host wants done with the keys." },
+  { when:"2027-01-23T12:30:00+09:00", day:"Sat 23 Jan", time:"12:30", c:"seoul",
+    title:"Be at Incheon Terminal 1",
+    note:"Counters usually close 1 hour before departure, at 14:30. The all-stop airport train from Hongik Univ. takes about an hour, so leave by 11:30." },
+  { when:"2027-01-23T15:30:00+09:00", day:"Sat 23 Jan", time:"15:30", c:"seoul", noCal:true,
+    title:"Fly home on Trinity Airways TW161", note:"Lands at Changi T2 at 21:25." }
+];
 
-// Tabs (with keyboard arrows)
+const DAYS = [
+  { date:"2027-01-16", c:"busan", city:"Busan", title:"Touchdown", sleep:"Lavalse Hotel", stops:[
+    ["08:05","Land at Gimhae","Get a T-money card and some won at a convenience store."],
+    ["~09:00","Train to the hotel","Light rail to Sasang, Line 2 to Seomyeon, then Line 1 to Nampo. Use Exit 6 and walk 10 minutes over Yeongdo Bridge."],
+    ["~10:30","Drop the bags","Check-in isn't until 15:00."],
+    ["Afternoon","Gamcheon Culture Village","Pastel hillside houses and mural alleys. About 30 minutes by bus."],
+    ["Evening","Jagalchi & Nampo-dong","Seafood, then street snacks at BIFF Square. Early night after the red-eye."]
+  ]},
+  { date:"2027-01-17", c:"busan", city:"Busan", title:"East coast run", sleep:"Lavalse Hotel", stops:[
+    ["Early","Haedong Yonggungsa","The temple on the sea rocks. Beat the tour buses."],
+    ["Late AM","Skyline Luge","Close by in Osiria. Get the multi-ride pass."],
+    ["Lunch","Haeundae / Mipo","Somewhere near the beach.","idea"],
+    ["Afternoon","Haeundae Sky Capsule","Book a time slot ahead. Little pods ride along the coast."],
+    ["Evening","Shinsegae Centum City","The huge mall and food hall, plus Spa Land to thaw out."]
+  ]},
+  { date:"2027-01-18", c:"seoul", city:"Busan → Seoul", title:"Fast train north", sleep:"Hongdae Airbnb", stops:[
+    ["11:00","Check out of Lavalse","Taxi to Busan Station."],
+    ["Midday","KTX to Seoul","About 2.5 hours. Add the train time once it's booked.","todo"],
+    ["Afternoon","Airport train to Hongdae","All-stop AREX from Seoul Station to Hongik Univ."],
+    ["Evening","Hongdae night","Buskers, Korean BBQ and late-night shopping."]
+  ]},
+  { date:"2027-01-19", c:"seoul", city:"Seoul", title:"Palaces & old Seoul", sleep:"Hongdae Airbnb", stops:[
+    ["Morning","Gyeongbokgung Palace","Rent a hanbok and you get in free.","idea"],
+    ["Afternoon","Bukchon & Insadong","Old houses, tea and craft shops.","idea"],
+    ["Evening","Gwangjang Market","Street-food heaven.","idea"]
+  ]},
+  { date:"2027-01-20", c:"seoul", city:"Seoul", title:"Shop till you drop", sleep:"Hongdae Airbnb", stops:[
+    ["Morning","Seongsu","Pop-up stores and warehouse cafés.","idea"],
+    ["Afternoon","Myeongdong","Skincare shopping and street food.","idea"],
+    ["Night","N Seoul Tower","Cable car up for the city lights.","idea"]
+  ]},
+  { date:"2027-01-21", c:"seoul", city:"Seoul", title:"Day trip", sleep:"Hongdae Airbnb", stops:[
+    ["All day","Pick one","A snow day at a ski resort, Nami Island, or a DMZ tour (book ahead).","idea"],
+    ["Evening","Yeonnam-dong","Dinner a short walk from the Airbnb.","idea"]
+  ]},
+  { date:"2027-01-22", c:"seoul", city:"Seoul", title:"Last full day", sleep:"Hongdae Airbnb", stops:[
+    ["Morning","Ikseon-dong","Brunch in old-house cafés.","idea"],
+    ["Afternoon","COEX & Starfield Library","Indoors if it's freezing. Last souvenirs.","idea"],
+    ["15:30","Check in online for TW161","Do it while packing."],
+    ["Night","Farewell dinner","","idea"]
+  ]},
+  { date:"2027-01-23", c:"ink", city:"Seoul → Singapore", title:"Homeward", sleep:"Home", stops:[
+    ["Morning","Check out of the Airbnb","Add the check-out time.","todo"],
+    ["11:30","Airport train to Incheon T1","About an hour."],
+    ["15:30","Fly home on TW161","Lands at Changi at 21:25."]
+  ]}
+];
+
+const PACKS = [
+  { k:"docs", title:"Documents", items:["Passport, valid 6+ months","Both flight bookings","Lavalse confirmation","Airbnb check-in instructions","KTX tickets","Travel insurance","Korea entry requirements checked (K-ETA, arrival card)"]},
+  { k:"clothes", title:"Clothes", items:["Thermals, 3 sets","Long padded coat","2–3 sweaters or fleeces","Beanie, scarf, gloves","Wool socks","Waterproof walking shoes","Swimwear, for Spa Land"]},
+  { k:"gear", title:"Small things", items:["Power bank, in cabin bag","Plug adapter, type C/F","eSIM or data plan","Thick moisturiser & lip balm","Hand warmers","Foldable shopping tote","Some won in cash"]}
+];
+
+const HIGHLIGHTS = ["Gamcheon","Sky Capsule","Yonggungsa","Skyline Luge","Centum City","KTX","Hongdae","Gyeongbokgung","Myeongdong","N Seoul Tower","Korean BBQ","Street food"];
+
+/* ============================ helpers ============================ */
+const $ = s => document.querySelector(s), $$ = s => [...document.querySelectorAll(s)];
+const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const col = k => `var(--${k})`;
+const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+const fmtDay = iso => new Date(iso+'T12:00:00+09:00').toLocaleDateString('en-SG',{weekday:'short',day:'numeric',month:'short',timeZone:'Asia/Seoul'});
+
+/* split hero title into letters */
 (function(){
-  const tabs = [...document.querySelectorAll('.tab')];
-  function select(t){
-    tabs.forEach(x=>{
-      const on = x===t;
-      x.setAttribute('aria-selected',on);
-      x.tabIndex = on?0:-1;
-      document.getElementById(x.getAttribute('aria-controls')).classList.toggle('on',on);
-    });
-    t.scrollIntoView({block:'nearest',inline:'center',behavior:'smooth'});
-  }
-  tabs.forEach((t,i)=>{
-    t.tabIndex = i===0?0:-1;
-    t.addEventListener('click',()=>select(t));
-    t.addEventListener('keydown',e=>{
-      if(e.key==='ArrowRight'){select(tabs[(i+1)%tabs.length]);tabs[(i+1)%tabs.length].focus()}
-      if(e.key==='ArrowLeft'){select(tabs[(i-1+tabs.length)%tabs.length]);tabs[(i-1+tabs.length)%tabs.length].focus()}
-    });
+  let i = 0;
+  $$('[data-split]').forEach(el => {
+    if (el.dataset.start) i = +el.dataset.start;
+    el.innerHTML = [...el.textContent].map(ch => `<span class="ch" style="--i:${i++}">${ch}</span>`).join('');
   });
-  // During the trip, open today's tab automatically
-  const start = new Date('2027-01-16T00:00:00+09:00').getTime();
-  const day = Math.floor((Date.now()-start)/864e5);
-  if (day>=0 && day<tabs.length) select(tabs[day]);
 })();
 
-// Packing checklist (saved per device)
+/* marquee */
+$('#marq').innerHTML = [...HIGHLIGHTS, ...HIGHLIGHTS].map(h => `<span>${esc(h)}</span>`).join('');
+
+/* ========================= snow ========================= */
+(function(){
+  if (reduce) return;
+  const cv = $('#snow'), ctx = cv.getContext('2d'), hero = $('.hero');
+  let W, H, flakes = [], run = true, dpr = Math.min(devicePixelRatio || 1, 2), mx = 0;
+  function size(){ W = cv.width = hero.offsetWidth*dpr; H = cv.height = hero.offsetHeight*dpr; }
+  size(); addEventListener('resize', size);
+  const N = innerWidth < 700 ? 70 : 150;
+  for (let i=0;i<N;i++) flakes.push({x:Math.random()*W,y:Math.random()*H,r:(Math.random()*2.4+.6)*dpr,s:Math.random()*.8+.3,o:Math.random()*Math.PI*2});
+  hero.addEventListener('pointermove', e => { mx = (e.clientX/innerWidth - .5) * 1.6; });
+  new IntersectionObserver(([e]) => { run = e.isIntersecting; if (run) loop(); }).observe(hero);
+  function loop(){
+    if (!run) return;
+    ctx.clearRect(0,0,W,H);
+    ctx.fillStyle = 'rgba(255,255,255,.85)';
+    for (const f of flakes){
+      f.o += .01; f.y += f.s*dpr; f.x += (Math.sin(f.o)*.4 + mx*f.s)*dpr;
+      if (f.y > H) { f.y = -5; f.x = Math.random()*W; }
+      if (f.x > W) f.x = 0; if (f.x < 0) f.x = W;
+      ctx.globalAlpha = .35 + f.r/(3*dpr)*.6;
+      ctx.beginPath(); ctx.arc(f.x,f.y,f.r,0,7); ctx.fill();
+    }
+    requestAnimationFrame(loop);
+  }
+})();
+
+/* ===================== flip countdown ===================== */
+(function(){
+  const dep = new Date('2027-01-16T00:25:00+08:00'), home = new Date('2027-01-23T21:25:00+08:00');
+  const units = {d:3,h:2,m:2,s:2};
+  const state = {};
+  Object.entries(units).forEach(([u,n]) => {
+    const box = $(`[data-unit="${u}"]`);
+    box.innerHTML = Array.from({length:n},()=>`<div class="tile"><span class="old">0</span><span class="new">0</span></div>`).join('');
+    state[u] = [...box.children];
+  });
+  function set(u, val){
+    const str = String(val).padStart(units[u],'0').slice(-units[u]);
+    state[u].forEach((tile,i) => {
+      const o = tile.querySelector('.old'), nw = tile.querySelector('.new');
+      if (o.textContent === str[i]) return;
+      nw.textContent = str[i];
+      if (reduce){ o.textContent = str[i]; return; }
+      tile.classList.remove('flip'); void tile.offsetWidth; tile.classList.add('flip');
+      setTimeout(() => { o.textContent = str[i]; tile.classList.remove('flip'); }, 460);
+    });
+  }
+  // hide leading zero on days when < 100
+  function tick(){
+    const now = new Date(); let ms = dep - now;
+    if (ms <= 0){
+      ms = 0;
+      $('#count-note').textContent = now < home ? "We're in Korea right now!" : 'Trip done. Already missing it.';
+    }
+    set('d', Math.floor(ms/864e5)); set('h', Math.floor(ms/36e5)%24);
+    set('m', Math.floor(ms/6e4)%60); set('s', Math.floor(ms/1e3)%60);
+    state.d[0].style.display = Math.floor(ms/864e5) < 100 ? 'none' : '';
+  }
+  tick(); setInterval(tick, 1000);
+})();
+
+/* ===================== route map (scroll-driven) ===================== */
+(function(){
+  const sec = $('#route'), drawn = $('#drawn'), plane = $('#plane');
+  const L = drawn.getTotalLength();
+  drawn.style.strokeDasharray = L; drawn.style.strokeDashoffset = L;
+  // where each city sits along the path (0..1)
+  const near = (x,y) => { let best=0,bd=1e9; for(let t=0;t<=1;t+=.002){const p=drawn.getPointAtLength(t*L);const d=(p.x-x)**2+(p.y-y)**2;if(d<bd){bd=d;best=t;}} return best; };
+  const tPUS = near(520,150), tSEL = near(380,90);
+  const legs = $$('#legs li');
+  function update(){
+    const r = sec.getBoundingClientRect();
+    const total = sec.offsetHeight - innerHeight;
+    const p = reduce ? 1 : Math.min(1, Math.max(0, -r.top / total));
+    drawn.style.strokeDashoffset = L*(1-p);
+    const a = drawn.getPointAtLength(p*L), b = drawn.getPointAtLength(Math.min(L, p*L+1));
+    const ang = Math.atan2(b.y-a.y, b.x-a.x)*180/Math.PI;
+    plane.setAttribute('transform', `translate(${a.x} ${a.y}) rotate(${ang})`);
+    $('#c-sin').classList.toggle('on', p < .02 || p > .98);
+    $('#c-pus').classList.toggle('on', p >= tPUS - .01 && p < tSEL);
+    $('#c-sel').classList.toggle('on', p >= tSEL - .01 && p < .98);
+    const step = p < tPUS-.04 ? 0 : p < tPUS+.08 ? 1 : p < tSEL-.01 ? 2 : p < tSEL+.12 ? 3 : 4;
+    legs.forEach((li,i) => li.classList.toggle('on', i <= step));
+  }
+  addEventListener('scroll', update, {passive:true}); addEventListener('resize', update); update();
+})();
+
+/* ===================== check-in timeline ===================== */
+(function(){
+  const tl = $('#tl');
+  tl.insertAdjacentHTML('beforeend', CHECKINS.map(c => `
+    <li style="--c:${col(c.c)}" data-reveal>
+      <div class="when"><b>${esc(c.time)}</b><span>${esc(c.day)}</span></div>
+      <h3>${esc(c.title)}${c.todo?'<span class="todo">to add</span>':''}</h3>
+      <p>${esc(c.note)}</p>
+    </li>`).join(''));
+  const fill = tl.querySelector('.fill');
+  function update(){
+    const r = tl.getBoundingClientRect();
+    const p = Math.min(1, Math.max(0, (innerHeight*.6 - r.top) / r.height));
+    fill.style.setProperty('--p', reduce ? 1 : p);
+  }
+  addEventListener('scroll', update, {passive:true}); update();
+})();
+
+/* calendar file */
+$('#ics').addEventListener('click', () => {
+  const f = d => d.toISOString().replace(/[-:]/g,'').replace(/\.\d{3}/,'');
+  const stamp = f(new Date()), clean = s => s.replace(/[,;]/g, m => '\\'+m);
+  const ev = CHECKINS.filter(c => c.when && !c.noCal).map((c,i) => {
+    const s = new Date(c.when), e = new Date(s.getTime()+30*60e3);
+    return ['BEGIN:VEVENT',`UID:korea27-${i}@trip`,`DTSTAMP:${stamp}`,`DTSTART:${f(s)}`,`DTEND:${f(e)}`,
+      `SUMMARY:${clean(c.title)}`,`DESCRIPTION:${clean(c.note)}`,
+      'BEGIN:VALARM','TRIGGER:-PT1H','ACTION:DISPLAY',`DESCRIPTION:${clean(c.title)}`,'END:VALARM','END:VEVENT'].join('\r\n');
+  });
+  const ics = ['BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//korea27//EN',...ev,'END:VCALENDAR'].join('\r\n');
+  const a = Object.assign(document.createElement('a'), {href:URL.createObjectURL(new Blob([ics],{type:'text/calendar'})), download:'korea-2027-checkins.ics'});
+  document.body.appendChild(a); a.click(); a.remove();
+});
+
+/* ===================== day cards ===================== */
+(function(){
+  const rail = $('#rail'), dots = $('#dots');
+  const todayKST = new Date(Date.now()+9*3600e3).toISOString().slice(0,10);
+  rail.innerHTML = DAYS.map((d,i) => `
+    <article class="card" style="--c:${col(d.c)}" aria-label="Day ${i+1}">
+      <span class="num" aria-hidden="true">${i+1}</span>
+      <span class="pill">${esc(d.city)}</span>${d.date===todayKST?'<span class="pill today">Today</span>':''}
+      <h3>${esc(d.title)}</h3>
+      <div class="date">Day ${i+1}, ${fmtDay(d.date)}</div>
+      <ul>${d.stops.map(([t,h,p,flag]) => `<li><span class="t">${esc(t)}</span><div><b>${esc(h)}${flag==='idea'?'<span class="idea">idea</span>':flag==='todo'?'<span class="todo">to add</span>':''}</b>${p?`<p>${esc(p)}</p>`:''}</div></li>`).join('')}</ul>
+      <div class="sleep">Sleeping at <b>${esc(d.sleep)}</b></div>
+    </article>`).join('');
+  dots.innerHTML = DAYS.map((_,i) => `<button type="button" aria-label="Go to day ${i+1}"></button>`).join('');
+  const cards = [...rail.children], dotEls = [...dots.children];
+  const go = i => { i = Math.max(0, Math.min(cards.length-1, i)); const c = cards[i]; rail.scrollTo({left: c.offsetLeft - (rail.clientWidth - c.offsetWidth)/2, behavior: reduce?'auto':'smooth'}); };
+  const current = () => { const mid = rail.scrollLeft + rail.clientWidth/2; let best=0,bd=1e9; cards.forEach((c,i)=>{const d=Math.abs(c.offsetLeft+c.offsetWidth/2-mid);if(d<bd){bd=d;best=i;}}); return best; };
+  const sync = () => { const i = current(); dotEls.forEach((d,j)=>d.classList.toggle('on',i===j)); };
+  rail.addEventListener('scroll', () => requestAnimationFrame(sync), {passive:true});
+  dotEls.forEach((d,i) => d.addEventListener('click', () => go(i)));
+  $('#prev').onclick = () => go(current()-1);
+  $('#next').onclick = () => go(current()+1);
+  rail.addEventListener('keydown', e => { if(e.key==='ArrowRight'){e.preventDefault();go(current()+1)} if(e.key==='ArrowLeft'){e.preventDefault();go(current()-1)} });
+  // drag to scroll on desktop
+  let down=false, sx=0, sl=0, moved=false;
+  rail.addEventListener('pointerdown', e => { if (e.pointerType!=='mouse') return; down=true; moved=false; sx=e.clientX; sl=rail.scrollLeft; rail.classList.add('drag'); });
+  addEventListener('pointermove', e => { if(!down) return; const dx=e.clientX-sx; if(Math.abs(dx)>4) moved=true; rail.scrollLeft = sl - dx; });
+  addEventListener('pointerup', () => { if(!down) return; down=false; rail.classList.remove('drag'); go(current()); });
+  // start on today's card during the trip
+  const ti = DAYS.findIndex(d => d.date===todayKST);
+  requestAnimationFrame(() => { if (ti>=0) go(ti); sync(); });
+})();
+
+/* ===================== packing + confetti ===================== */
 (function(){
   let store = {};
-  try { store = JSON.parse(localStorage.getItem('korea27-pack')||'{}'); } catch(e){}
-  document.querySelectorAll('.check').forEach(list=>{
-    [...list.children].forEach((li,i)=>{
-      const key = list.dataset.k+'-'+i;
-      if(store[key]) li.classList.add('done');
-      li.setAttribute('role','checkbox');
-      li.setAttribute('aria-checked',!!store[key]);
-      li.tabIndex = 0;
-      const toggle = ()=>{
-        li.classList.toggle('done');
-        store[key] = li.classList.contains('done');
-        li.setAttribute('aria-checked',store[key]);
-        try { localStorage.setItem('korea27-pack',JSON.stringify(store)); } catch(e){}
+  try { store = JSON.parse(localStorage.getItem('korea27-pack') || '{}'); } catch(e){}
+  const C = 2*Math.PI*22;
+  $('#packs').innerHTML = PACKS.map((p,pi) => `
+    <div class="pack" data-reveal style="--d:${pi*100}ms" data-k="${p.k}">
+      <div class="pack-top"><h3>${esc(p.title)}</h3>
+        <div class="ring-wrap"><svg class="ring" viewBox="0 0 54 54"><circle class="bg" cx="27" cy="27" r="22"/><circle class="fg" cx="27" cy="27" r="22" stroke-dasharray="${C}" stroke-dashoffset="${C}"/></svg><span>0/${p.items.length}</span></div>
+      </div>
+      <ul class="check">${p.items.map((it,i) => `<li role="checkbox" tabindex="0" aria-checked="${!!store[p.k+'-'+i]}" data-key="${p.k}-${i}"><span class="box"><svg viewBox="0 0 16 16"><path d="M3 8.5l3.2 3L13 4.5"/></svg></span><span class="lbl">${esc(it)}</span></li>`).join('')}</ul>
+    </div>`).join('');
+  function ring(pack, celebrate){
+    const lis = pack.querySelectorAll('li'), done = pack.querySelectorAll('li[aria-checked="true"]').length;
+    pack.querySelector('.fg').style.strokeDashoffset = C*(1-done/lis.length);
+    pack.querySelector('.ring-wrap span').textContent = `${done}/${lis.length}`;
+    pack.querySelector('.ring').classList.toggle('done', done===lis.length);
+    if (celebrate && done===lis.length) confetti(pack);
+  }
+  $$('.pack').forEach(pack => {
+    ring(pack,false);
+    pack.querySelectorAll('li').forEach(li => {
+      const t = () => {
+        const v = li.getAttribute('aria-checked') !== 'true';
+        li.setAttribute('aria-checked', v); store[li.dataset.key] = v;
+        try { localStorage.setItem('korea27-pack', JSON.stringify(store)); } catch(e){}
+        ring(pack, v);
       };
-      li.addEventListener('click',toggle);
-      li.addEventListener('keydown',e=>{if(e.key===' '||e.key==='Enter'){e.preventDefault();toggle()}});
+      li.addEventListener('click', t);
+      li.addEventListener('keydown', e => { if(e.key===' '||e.key==='Enter'){e.preventDefault();t();} });
     });
   });
+  function confetti(el){
+    if (reduce) return;
+    const r = el.querySelector('.ring').getBoundingClientRect();
+    const cx = r.left + r.width/2, cy = r.top + r.height/2;
+    const colors = ['#13b5b1','#6b5bff','#ffd23f','#ff5d73','#ffffff'];
+    for (let i=0;i<70;i++){
+      const p = document.createElement('i'); p.className='confetti';
+      p.style.background = colors[i%colors.length]; p.style.left = cx+'px'; p.style.top = cy+'px';
+      document.body.appendChild(p);
+      const ang = Math.random()*Math.PI*2, v = 120 + Math.random()*260;
+      const dx = Math.cos(ang)*v, dy = Math.sin(ang)*v - 160;
+      p.animate([
+        {transform:'translate(-50%,-50%) rotate(0)', opacity:1},
+        {transform:`translate(calc(-50% + ${dx}px), calc(-50% + ${dy}px)) rotate(${Math.random()*720}deg)`, opacity:1, offset:.6},
+        {transform:`translate(calc(-50% + ${dx*1.2}px), calc(-50% + ${dy+380}px)) rotate(${Math.random()*1080}deg)`, opacity:0}
+      ], {duration:1400+Math.random()*600, easing:'cubic-bezier(.2,.7,.4,1)'}).onfinish = () => p.remove();
+    }
+  }
 })();
 
-// Reveal on scroll
+/* ===================== reveal + counters ===================== */
 (function(){
-  const io = new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
-  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+  const io = new IntersectionObserver(es => es.forEach(e => {
+    if (!e.isIntersecting) return;
+    e.target.classList.add('in'); io.unobserve(e.target);
+    e.target.querySelectorAll('[data-count]').forEach(countUp);
+  }), {threshold:.15, rootMargin:'0px 0px -40px 0px'});
+  $$('[data-reveal]').forEach(el => io.observe(el));
+  function countUp(el){
+    const to = +el.dataset.count, dur = reduce ? 0 : 1200, t0 = performance.now();
+    (function f(t){ const k = dur ? Math.min(1,(t-t0)/dur) : 1; const e = 1-Math.pow(1-k,3);
+      el.textContent = Math.round(31 + (to-31)*e) + '°'; if (k<1) requestAnimationFrame(f); })(t0);
+  }
+})();
+
+/* ===================== progress bar + dock ===================== */
+(function(){
+  const bar = $('#progress'), dock = $('#dock'), links = $$('#dock a');
+  const secs = links.map(a => $(a.getAttribute('href')));
+  function update(){
+    const h = document.documentElement.scrollHeight - innerHeight;
+    bar.style.transform = `scaleX(${scrollY / h})`;
+    dock.classList.toggle('show', scrollY > innerHeight*.7);
+    let cur = -1; secs.forEach((s,i) => { if (s.getBoundingClientRect().top < innerHeight*.4) cur = i; });
+    links.forEach((a,i) => a.classList.toggle('on', i===cur));
+  }
+  addEventListener('scroll', update, {passive:true}); update();
 })();
 </script>
 </body>
