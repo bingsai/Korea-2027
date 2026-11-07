@@ -66,6 +66,7 @@
   .tile.flip .old{transform:translateY(-100%)}
   .tile .new{transform:translateY(100%)}
   .tile.flip .new{transform:translateY(0)}
+  .tile.snap span{transition:none!important}
   .unit small{display:block;margin-top:8px;font-size:.8rem;color:#9fb0d6;font-weight:600}
   .count-note{margin-top:14px;font-size:.92rem;color:#9fb0d6;opacity:0;animation:fadeup .9s var(--ease) 1.35s forwards}
 
@@ -88,28 +89,66 @@
   [data-reveal].in{opacity:1;transform:none}
 
   /* ========== FLIGHT MAP ========== */
-  .route-sec{height:260vh;padding:0;position:relative}
-  .route-stick{position:sticky;top:0;height:100svh;display:flex;flex-direction:column;justify-content:center;padding:70px 24px 40px}
-  .route-grid{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:32px;align-items:center}
-  @media(max-width:820px){.route-grid{grid-template-columns:1fr;gap:4px}.route-sec{height:220vh}}
+  .route-sec{height:300vh;padding:0;position:relative}
+  .route-stick{position:sticky;top:0;height:100svh;display:flex;flex-direction:column;justify-content:center;padding:64px 24px 84px}
+  .route-grid{display:grid;grid-template-columns:minmax(0,.75fr) minmax(0,1.25fr);gap:32px;align-items:center;height:100%}
   .legs{list-style:none;margin-top:28px}
-  .legs li{display:flex;gap:14px;align-items:flex-start;padding:12px 0;opacity:.3;transition:opacity .4s,transform .4s var(--ease);transform:translateX(-6px)}
+  .legs li{display:flex;gap:14px;align-items:flex-start;padding:11px 0;opacity:.3;transition:opacity .4s,transform .4s var(--ease);transform:translateX(-6px)}
   .legs li.on{opacity:1;transform:none}
-  .legs .ic{flex:none;width:38px;height:38px;border-radius:12px;display:grid;place-items:center;background:var(--c);color:#fff;font-size:1.05rem}
+  .legs li.now .ic{box-shadow:0 0 0 4px var(--ice),0 0 0 6px var(--c)}
+  .legs .ic{flex:none;width:38px;height:38px;border-radius:12px;display:grid;place-items:center;background:var(--c);color:#fff;font-size:1.05rem;transition:box-shadow .3s}
   .legs b{display:block;font-size:1.05rem;line-height:1.25}
   .legs span{font-size:.92rem;color:var(--ink-soft)}
-  @media(max-width:820px){.legs{display:grid;grid-template-columns:1fr 1fr;gap:0 12px;margin-top:10px}.legs li{padding:6px 0}.legs .ic{width:30px;height:30px;font-size:.9rem;border-radius:9px}.legs b{font-size:.92rem}.legs span{font-size:.8rem}.route-sec .h2{font-size:2.2rem}.route-sec .lede{display:none}}
-  .mapsvg{width:100%;height:auto;overflow:visible}
-  .mapsvg .track{fill:none;stroke:var(--rule);stroke-width:3;stroke-dasharray:2 10;stroke-linecap:round}
-  .mapsvg .drawn{fill:none;stroke-width:5;stroke-linecap:round}
-  .mapsvg .city circle.core{fill:var(--snow);stroke:var(--ink);stroke-width:4;transition:fill .4s}
-  .mapsvg .city circle.ring{fill:none;stroke:var(--c);stroke-width:3;opacity:0;transform-box:fill-box;transform-origin:center}
+
+  .map-box{position:relative;height:100%;max-height:calc(100svh - 148px);display:flex;justify-content:center;align-items:center}
+  .map-inner{position:relative;height:100%;aspect-ratio:640/873;max-width:100%}
+  .mapsvg{width:100%;height:100%;display:block}
+  .mapsvg .grid line{stroke:var(--ink);stroke-width:1;opacity:.07}
+  .mapsvg .grid text{font-family:var(--font);font-size:11px;font-weight:600;fill:var(--ink);opacity:.28}
+  .mapsvg .rings circle{fill:none;stroke:var(--ink);stroke-width:1;opacity:.07}
+  .mapsvg .rings .sweep{stroke:var(--c);stroke-width:1.5;opacity:0;transform-box:fill-box;transform-origin:center;animation:radar 4.5s linear infinite}
+  .mapsvg .rings .sweep.b{animation-delay:-2.25s}
+  @keyframes radar{0%{transform:scale(.05);opacity:.5}100%{transform:scale(1);opacity:0}}
+  .mapsvg .land{fill:#dbe6f3;stroke:#9fb3cf;stroke-width:.8;stroke-linejoin:round;opacity:.75}
+  .mapsvg .land-hi{fill:none;stroke:var(--ink);stroke-width:1.2;stroke-linejoin:round;opacity:.35}
+  .mapsvg .sea{font-family:var(--font);font-style:italic;font-size:13px;font-weight:500;fill:#7d91b3;letter-spacing:.12em}
+  .mapsvg .track{fill:none;stroke:var(--ink);stroke-width:1.5;stroke-dasharray:2 7;stroke-linecap:round;opacity:.25}
+  .mapsvg .drawn{fill:none;stroke-width:4;stroke-linecap:round}
+  .mapsvg .drawn.rail{stroke:var(--seoul);stroke-width:5}
+  .mapsvg .city circle.core{fill:var(--snow);stroke:var(--ink);stroke-width:3;transition:fill .4s}
+  .mapsvg .city circle.ring{fill:none;stroke:var(--c);stroke-width:2.5;opacity:0;transform-box:fill-box;transform-origin:center}
   .mapsvg .city.on circle.core{fill:var(--c)}
   .mapsvg .city.on circle.ring{animation:ping 1.6s var(--ease) infinite}
-  @keyframes ping{0%{opacity:.9;transform:scale(1)}100%{opacity:0;transform:scale(2.6)}}
-  .mapsvg text{font-family:var(--font);font-weight:800;font-size:30px;fill:var(--ink);font-stretch:80%;text-transform:uppercase}
-  .mapsvg text.s{font-weight:500;font-size:19px;fill:var(--ink-soft);text-transform:none;font-stretch:100%}
-  #plane{transition:none}
+  @keyframes ping{0%{opacity:.9;transform:scale(1)}100%{opacity:0;transform:scale(2.8)}}
+  .mapsvg .city text{font-family:var(--font);font-weight:800;font-size:19px;fill:var(--ink);font-stretch:80%;text-transform:uppercase;paint-order:stroke;stroke:var(--ice);stroke-width:4px;stroke-linejoin:round}
+  .mapsvg .city text.s{font-weight:600;font-size:12px;fill:var(--ink-soft);text-transform:none;font-stretch:100%}
+  #plane text{font-size:17px}
+
+  /* telemetry readout */
+  .tele{position:absolute;left:3%;bottom:2.5%;width:min(350px,78%);background:var(--night);color:var(--snow);border-radius:20px;padding:14px 16px 15px;box-shadow:0 24px 50px -24px rgba(11,23,54,.7);font-variant-numeric:tabular-nums}
+  .tele-top{display:flex;align-items:center;gap:10px}
+  .tele-ic{flex:none;width:34px;height:34px;border-radius:10px;background:var(--c,var(--busan));display:grid;place-items:center;font-size:1rem;transition:background .4s}
+  .tele-top b{display:block;font-size:.98rem;line-height:1.2}
+  .tele-top span{font-size:.78rem;color:#9fb0d6}
+  .tele-leg{margin-left:auto;font-size:.72rem;font-weight:700;background:rgba(255,255,255,.1);padding:3px 9px;border-radius:99px;white-space:nowrap;align-self:flex-start}
+  .tele-route{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:10px;margin:12px 0 10px;font-weight:800;font-size:.95rem}
+  .tele-bar{height:4px;border-radius:4px;background:rgba(255,255,255,.14);overflow:hidden}
+  .tele-bar i{display:block;height:100%;width:100%;transform-origin:0 50%;transform:scaleX(0);background:linear-gradient(90deg,var(--busan),var(--sun))}
+  .tele-stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;border-top:1px solid rgba(255,255,255,.1);padding-top:10px}
+  .tele-stats small{display:block;font-size:.7rem;color:#9fb0d6}
+  .tele-stats b{display:block;font-size:.92rem;line-height:1.25;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+
+  @media(max-width:820px){
+    .route-sec{height:260vh}
+    .route-stick{padding:58px 16px 80px}
+    .route-grid{grid-template-columns:1fr;grid-template-rows:auto 1fr;gap:10px}
+    .route-sec .h2{font-size:2.2rem}
+    .route-sec .lede,.legs{display:none}
+    .map-box{max-height:none;min-height:0}
+    .map-inner{height:100%;width:100%;aspect-ratio:auto}
+    .tele{width:auto;left:0;right:0;bottom:0;padding:11px 13px 12px;border-radius:16px}
+    .tele-route{margin:8px 0 7px}
+  }
 
   /* ========== CHECK-IN ========== */
   .alert{margin-top:36px;display:flex;gap:18px;align-items:flex-start;background:var(--night);color:var(--snow);padding:24px;border-radius:22px;max-width:760px;position:relative;overflow:hidden}
@@ -285,7 +324,7 @@
     <div class="route-grid">
       <div>
         <h2 class="h2">The route</h2>
-        <p class="lede">Fly into Busan, take the fast train up to Seoul, then fly home from Incheon. Keep scrolling to follow it.</p>
+        <p class="lede">Fly into Busan, take the KTX up to Seoul, then fly home from Incheon. Keep scrolling to follow along.</p>
         <ol class="legs" id="legs">
           <li style="--c:var(--busan)"><span class="ic">✈</span><div><b>Changi → Busan</b><span>Sat 16 Jan, 00:25–08:05</span></div></li>
           <li style="--c:var(--busan)"><span class="ic">🏨</span><div><b>2 nights in Busan</b><span>Lavalse Hotel, Yeongdo</span></div></li>
@@ -294,17 +333,45 @@
           <li style="--c:var(--ink)"><span class="ic">✈</span><div><b>Incheon → Changi</b><span>Sat 23 Jan, 15:30–21:25</span></div></li>
         </ol>
       </div>
-      <svg class="mapsvg" viewBox="0 0 640 560" role="img" aria-label="Flight path from Singapore to Busan, train to Seoul, flight back to Singapore">
-        <defs>
-          <linearGradient id="g" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#13b5b1"/><stop offset=".55" stop-color="#6b5bff"/><stop offset="1" stop-color="#10172a"/></linearGradient>
-        </defs>
-        <path class="track" d="M110 480 C 200 300, 420 260, 520 150 L 380 90 C 300 230, 220 380, 110 480"/>
-        <path class="drawn" id="drawn" stroke="url(#g)" d="M110 480 C 200 300, 420 260, 520 150 L 380 90 C 300 230, 220 380, 110 480"/>
-        <g class="city" id="c-sin" style="--c:var(--ink)"><circle class="ring" cx="110" cy="480" r="12"/><circle class="core" cx="110" cy="480" r="12"/><text x="140" y="500">Singapore</text><text class="s" x="140" y="524">Start and finish</text></g>
-        <g class="city" id="c-pus" style="--c:var(--busan)"><circle class="ring" cx="520" cy="150" r="12"/><circle class="core" cx="520" cy="150" r="12"/><text x="470" y="210">Busan</text><text class="s" x="470" y="234">16–18 Jan</text></g>
-        <g class="city" id="c-sel" style="--c:var(--seoul)"><circle class="ring" cx="380" cy="90" r="12"/><circle class="core" cx="380" cy="90" r="12"/><text x="200" y="80">Seoul</text><text class="s" x="200" y="104">18–23 Jan</text></g>
-        <g id="plane"><circle r="20" fill="#ffd23f"/><text x="0" y="8" text-anchor="middle" style="font-size:22px;fill:#10172a">✈</text></g>
-      </svg>
+      <div class="map-box"><div class="map-inner">
+        <svg class="mapsvg" id="mapsvg" viewBox="0 0 640 873" role="img" aria-label="Map of East and Southeast Asia showing the flight from Singapore to Busan, the KTX train to Seoul, and the flight from Incheon back to Singapore">
+          <defs>
+            <linearGradient id="g1" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#13b5b1"/><stop offset="1" stop-color="#0e8f8c"/></linearGradient>
+            <linearGradient id="g3" x1="1" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#6b5bff"/><stop offset="1" stop-color="#10172a"/></linearGradient>
+            <clipPath id="clip"><rect width="640" height="873" rx="24"/></clipPath>
+            <radialGradient id="fade"><stop offset="0" stop-color="#fff"/><stop offset=".55" stop-color="#fff" stop-opacity=".6"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient>
+            <mask id="hiMask" maskUnits="userSpaceOnUse" x="0" y="0" width="640" height="873"><g id="hiSpots"></g></mask>
+            <radialGradient id="glowB"><stop offset="0" stop-color="#13b5b1" stop-opacity=".22"/><stop offset="1" stop-color="#13b5b1" stop-opacity="0"/></radialGradient>
+            <radialGradient id="glowS"><stop offset="0" stop-color="#6b5bff" stop-opacity=".2"/><stop offset="1" stop-color="#6b5bff" stop-opacity="0"/></radialGradient>
+          </defs>
+          <g clip-path="url(#clip)">
+            <g class="grid" id="grid"></g>
+            <g class="rings" id="rings"></g>
+            <g id="glows"></g>
+            <path class="land" id="land" d=""/>
+            <path class="land-hi" id="landHi" d="" mask="url(#hiMask)"/>
+            <g id="seas"></g>
+            <g id="tracks"></g>
+            <g id="drawn"></g>
+            <g id="cities"></g>
+            <g id="plane"><circle r="16" fill="#ffd23f" stroke="#10172a" stroke-width="2"/><text id="plane-ic" x="0" y="6" text-anchor="middle">✈</text></g>
+          </g>
+        </svg>
+
+        <div class="tele" id="tele" aria-live="off">
+          <div class="tele-top">
+            <span class="tele-ic" id="t-ic">✈</span>
+            <div><b id="t-mode">Ready for departure</b><span id="t-sub">Changi Terminal 4</span></div>
+            <span class="tele-leg" id="t-leg">Fri 15 Jan</span>
+          </div>
+          <div class="tele-route"><span id="t-from">SIN</span><div class="tele-bar"><i id="t-bar"></i></div><span id="t-to">PUS</span></div>
+          <div class="tele-stats">
+            <div><small id="t-l1">Distance</small><b id="t-v1">0 km</b></div>
+            <div><small id="t-l2">Time</small><b id="t-v2">0h 00m</b></div>
+            <div><small id="t-l3">Avg speed</small><b id="t-v3">—</b></div>
+          </div>
+        </div>
+      </div></div>
     </div>
   </div>
 </section>
@@ -566,15 +633,25 @@ $('#marq').innerHTML = [...HIGHLIGHTS, ...HIGHLIGHTS].map(h => `<span>${esc(h)}<
     box.innerHTML = Array.from({length:n},()=>`<div class="tile"><span class="old">0</span><span class="new">0</span></div>`).join('');
     state[u] = [...box.children];
   });
+  let first = true;
   function set(u, val){
     const str = String(val).padStart(units[u],'0').slice(-units[u]);
     state[u].forEach((tile,i) => {
       const o = tile.querySelector('.old'), nw = tile.querySelector('.new');
-      if (o.textContent === str[i]) return;
-      nw.textContent = str[i];
-      if (reduce){ o.textContent = str[i]; return; }
-      tile.classList.remove('flip'); void tile.offsetWidth; tile.classList.add('flip');
-      setTimeout(() => { o.textContent = str[i]; tile.classList.remove('flip'); }, 460);
+      if (tile.dataset.v === str[i]) return;          // digit unchanged: leave it alone
+      tile.dataset.v = str[i];
+      clearTimeout(tile._t);
+      if (reduce || first){ o.textContent = nw.textContent = str[i]; return; }
+      // settle any flip still in progress, without animating backwards
+      tile.classList.add('snap'); tile.classList.remove('flip');
+      o.textContent = o.dataset.cur || o.textContent; void tile.offsetWidth; tile.classList.remove('snap');
+      nw.textContent = str[i]; tile.classList.add('flip');
+      tile._t = setTimeout(() => {
+        tile.classList.add('snap');                     // swap instantly: new digit becomes the resting one
+        o.textContent = str[i]; o.dataset.cur = str[i];
+        tile.classList.remove('flip'); void tile.offsetWidth;
+        tile.classList.remove('snap');
+      }, 470);
     });
   }
   // hide leading zero on days when < 100
@@ -588,33 +665,195 @@ $('#marq').innerHTML = [...HIGHLIGHTS, ...HIGHLIGHTS].map(h => `<span>${esc(h)}<
     set('m', Math.floor(ms/6e4)%60); set('s', Math.floor(ms/1e3)%60);
     state.d[0].style.display = Math.floor(ms/864e5) < 100 ? 'none' : '';
   }
-  tick(); setInterval(tick, 1000);
+  tick(); first = false; setInterval(tick, 1000);
 })();
 
-/* ===================== route map (scroll-driven) ===================== */
+/* ===================== route map (real geography, scroll-driven) ===================== */
 (function(){
-  const sec = $('#route'), drawn = $('#drawn'), plane = $('#plane');
-  const L = drawn.getTotalLength();
-  drawn.style.strokeDasharray = L; drawn.style.strokeDashoffset = L;
-  // where each city sits along the path (0..1)
-  const near = (x,y) => { let best=0,bd=1e9; for(let t=0;t<=1;t+=.002){const p=drawn.getPointAtLength(t*L);const d=(p.x-x)**2+(p.y-y)**2;if(d<bd){bd=d;best=t;}} return best; };
-  const tPUS = near(520,150), tSEL = near(380,90);
-  const legs = $$('#legs li');
-  function update(){
-    const r = sec.getBoundingClientRect();
-    const total = sec.offsetHeight - innerHeight;
-    const p = reduce ? 1 : Math.min(1, Math.max(0, -r.top / total));
-    drawn.style.strokeDashoffset = L*(1-p);
-    const a = drawn.getPointAtLength(p*L), b = drawn.getPointAtLength(Math.min(L, p*L+1));
-    const ang = Math.atan2(b.y-a.y, b.x-a.x)*180/Math.PI;
-    plane.setAttribute('transform', `translate(${a.x} ${a.y}) rotate(${ang})`);
-    $('#c-sin').classList.toggle('on', p < .02 || p > .98);
-    $('#c-pus').classList.toggle('on', p >= tPUS - .01 && p < tSEL);
-    $('#c-sel').classList.toggle('on', p >= tSEL - .01 && p < .98);
-    const step = p < tPUS-.04 ? 0 : p < tPUS+.08 ? 1 : p < tSEL-.01 ? 2 : p < tSEL+.12 ? 3 : 4;
-    legs.forEach((li,i) => li.classList.toggle('on', i <= step));
+  const NS = 'http://www.w3.org/2000/svg';
+  const W = 640, H = 873;
+  // Mercator view: 92°E–140°E, 20°S–41°N
+  const LON0 = 92, LON1 = 140, LAT0 = -20, LAT1 = 41;
+  const rad = d => d*Math.PI/180;
+  const merc = lat => Math.log(Math.tan(Math.PI/4 + rad(lat)/2));
+  const K = W / rad(LON1-LON0), TOP = merc(LAT1);
+  const proj = ([lon,lat]) => [ (rad(lon-LON0))*K, (TOP - merc(lat))*K ];
+  const el = (tag, attrs={}, parent) => { const e = document.createElementNS(NS, tag); for (const k in attrs) e.setAttribute(k, attrs[k]); parent && parent.appendChild(e); return e; };
+  const pathD = pts => 'M' + pts.map(p => p[0].toFixed(1)+' '+p[1].toFixed(1)).join('L');
+
+  const PLACES = {
+    SIN:[103.99,1.36], PUS:[128.94,35.18], SEL:[126.92,37.556], ICN:[126.45,37.46]
+  };
+  const P = Object.fromEntries(Object.entries(PLACES).map(([k,v]) => [k, proj(v)]));
+
+  // haversine km
+  function km(a,b){ const R=6371, dφ=rad(b[1]-a[1]), dλ=rad(b[0]-a[0]);
+    const h=Math.sin(dφ/2)**2+Math.cos(rad(a[1]))*Math.cos(rad(b[1]))*Math.sin(dλ/2)**2; return 2*R*Math.asin(Math.sqrt(h)); }
+  // great-circle points
+  function gc(a,b,n=72){
+    const [λ1,φ1,λ2,φ2] = [rad(a[0]),rad(a[1]),rad(b[0]),rad(b[1])];
+    const d = 2*Math.asin(Math.sqrt(Math.sin((φ2-φ1)/2)**2+Math.cos(φ1)*Math.cos(φ2)*Math.sin((λ2-λ1)/2)**2));
+    const out = [];
+    for (let i=0;i<=n;i++){ const f=i/n, A=Math.sin((1-f)*d)/Math.sin(d), B=Math.sin(f*d)/Math.sin(d);
+      const x=A*Math.cos(φ1)*Math.cos(λ1)+B*Math.cos(φ2)*Math.cos(λ2), y=A*Math.cos(φ1)*Math.sin(λ1)+B*Math.cos(φ2)*Math.sin(λ2), z=A*Math.sin(φ1)+B*Math.sin(φ2);
+      out.push([Math.atan2(y,x)*180/Math.PI, Math.atan2(z,Math.sqrt(x*x+y*y))*180/Math.PI]); }
+    return out;
   }
-  addEventListener('scroll', update, {passive:true}); addEventListener('resize', update); update();
+
+  /* ---------- grid + radar rings + glows + sea labels ---------- */
+  const grid = document.getElementById('grid');
+  for (let lon=95; lon<LON1; lon+=5){ const x = proj([lon,0])[0]; el('line',{x1:x,y1:0,x2:x,y2:H},grid); if (lon%10===0) el('text',{x:x+4,y:16},grid).textContent = lon+'°E'; }
+  for (let lat=-15; lat<LAT1; lat+=5){ const y = proj([0,lat])[1]; el('line',{x1:0,y1:y,x2:W,y2:y},grid); if (lat%10===0) el('text',{x:W-6,y:y-4,'text-anchor':'end'},grid).textContent = lat===0?'0°':Math.abs(lat)+(lat>0?'°N':'°S'); }
+  const rings = document.getElementById('rings');
+  [['SIN','var(--busan)','a'],['SEL','var(--seoul)','b']].forEach(([k,c,cls]) => {
+    const [x,y] = P[k];
+    [45,90,135,180,225].forEach(r => el('circle',{cx:x,cy:y,r},rings));
+    el('circle',{cx:x,cy:y,r:225,class:'sweep '+cls,style:`--c:${c}`},rings);
+  });
+  const glows = document.getElementById('glows');
+  el('circle',{cx:P.SIN[0],cy:P.SIN[1],r:70,fill:'url(#glowB)'},glows);
+  el('circle',{cx:(P.SEL[0]+P.PUS[0])/2,cy:(P.SEL[1]+P.PUS[1])/2,r:90,fill:'url(#glowS)'},glows);
+  // where the coastline is drawn a little stronger
+  const hi = document.getElementById('hiSpots');
+  [[[104,1.3],60,60],[[112,12],150,230],[[127.5,36.5],80,95]].forEach(([ll,rx,ry]) => { const [x,y]=proj(ll); el('ellipse',{cx:x,cy:y,rx,ry,fill:'url(#fade)'},hi); });
+  const seas = document.getElementById('seas');
+  [['South China Sea',[111.2,13]],['Yellow Sea',[122.2,35.3]],['Philippine Sea',[131,19]],['Java Sea',[110,-5]]].forEach(([t,ll]) => {
+    const [x,y]=proj(ll); el('text',{x,y,class:'sea','text-anchor':'middle'},seas).textContent = t; });
+
+  /* ---------- coastline from Natural Earth (world-atlas, 1:50m) ---------- */
+  function topoRings(topo){
+    const {scale:[sx,sy], translate:[tx,ty]} = topo.transform;
+    const arcs = topo.arcs.map(a => { let x=0,y=0; return a.map(([dx,dy]) => { x+=dx; y+=dy; return [x*sx+tx, y*sy+ty]; }); });
+    const arc = i => i>=0 ? arcs[i] : arcs[~i].slice().reverse();
+    const out = [];
+    const geoms = topo.objects.land.geometries || [topo.objects.land];
+    geoms.forEach(g => {
+      const polys = g.type==='Polygon' ? [g.arcs] : g.type==='MultiPolygon' ? g.arcs : [];
+      polys.forEach(poly => poly.forEach(ring => out.push(ring.flatMap(arc))));
+    });
+    return out;
+  }
+  function landPath(rings){
+    const M = 40, d = [];
+    for (const ring of rings){
+      let minX=1e9,maxX=-1e9,minY=1e9,maxY=-1e9; const pts=[];
+      for (const ll of ring){
+        let [x,y] = proj(ll);
+        if (!isFinite(y)) continue;
+        minX=Math.min(minX,x);maxX=Math.max(maxX,x);minY=Math.min(minY,y);maxY=Math.max(maxY,y);
+        x = Math.max(-M, Math.min(W+M, x)); y = Math.max(-M, Math.min(H+M, y));
+        const last = pts[pts.length-1];
+        if (!last || Math.abs(last[0]-x)+Math.abs(last[1]-y) > .9) pts.push([x,y]);
+      }
+      if (maxX < 0 || minX > W || maxY < 0 || minY > H || pts.length < 3) continue;
+      d.push(pathD(pts)+'Z');
+    }
+    return d.join('');
+  }
+  fetch('https://cdn.jsdelivr.net/npm/world-atlas@2/land-50m.json')
+    .then(r => r.ok ? r.json() : Promise.reject(r.status))
+    .then(topo => { const d = landPath(topoRings(topo)); document.getElementById('land').setAttribute('d', d); document.getElementById('landHi').setAttribute('d', d); })
+    .catch(() => {/* map still works without the coastline */});
+
+  /* ---------- the journey ---------- */
+  const legs = [
+    { pts: gc(PLACES.SIN, PLACES.PUS).map(proj), cls:'drawn', stroke:'url(#g1)' },
+    { pts: [P.PUS, proj([128.6,35.87]), proj([127.43,36.33]), proj([127.1,36.9]), P.SEL], cls:'drawn rail' }, // via Daegu & Daejeon
+    { pts: [P.SEL, ...gc(PLACES.ICN, PLACES.SIN).map(proj)], cls:'drawn', stroke:'url(#g3)' }
+  ];
+  const tracks = document.getElementById('tracks'), drawnG = document.getElementById('drawn');
+  legs.forEach(l => {
+    el('path',{d:pathD(l.pts),class:'track'},tracks);
+    l.path = el('path',{d:pathD(l.pts),class:l.cls, ...(l.stroke?{stroke:l.stroke}:{})},drawnG);
+    l.len = l.path.getTotalLength();
+    l.path.style.strokeDasharray = l.len; l.path.style.strokeDashoffset = l.len;
+  });
+  const cities = document.getElementById('cities');
+  const mk = (id,k,c,label,sub,dx,dy,anchor='start') => {
+    const g = el('g',{class:'city',id,style:`--c:${c}`},cities); const [x,y]=P[k];
+    el('circle',{class:'ring',cx:x,cy:y,r:8},g); el('circle',{class:'core',cx:x,cy:y,r:8},g);
+    el('text',{x:x+dx,y:y+dy,'text-anchor':anchor},g).textContent = label;
+    el('text',{class:'s',x:x+dx,y:y+dy+15,'text-anchor':anchor},g).textContent = sub;
+    return g;
+  };
+  const cSIN = mk('c-sin','SIN','var(--ink)','Singapore','Start and finish',16,6);
+  const cPUS = mk('c-pus','PUS','var(--busan)','Busan','16–18 Jan',14,20);
+  const cSEL = mk('c-sel','SEL','var(--seoul)','Seoul','18–23 Jan',-14,-12,'end');
+
+  /* ---------- telemetry ---------- */
+  const D1 = km(PLACES.SIN, PLACES.PUS), D3 = km(PLACES.ICN, PLACES.SIN), RAIL = 417;
+  const T = id => document.getElementById(id);
+  const hm = m => `${Math.floor(m/60)}h ${String(Math.round(m%60)).padStart(2,'0')}m`;
+  const n = v => Math.round(v).toLocaleString('en-SG');
+  const PH = [
+    { a:0,   b:.05, k:'ready' },
+    { a:.05, b:.38, k:'leg', i:0 },
+    { a:.38, b:.48, k:'busan' },
+    { a:.48, b:.58, k:'ktx', i:1 },
+    { a:.58, b:.68, k:'seoul' },
+    { a:.68, b:.96, k:'leg', i:2 },
+    { a:.96, b:1.01, k:'home' }
+  ];
+  const ease = t => t<.5 ? 2*t*t : 1-Math.pow(-2*t+2,2)/2;
+  function tele(o){
+    T('t-ic').textContent = o.ic; T('tele').style.setProperty('--c', o.c);
+    T('t-mode').textContent = o.mode; T('t-sub').textContent = o.sub; T('t-leg').textContent = o.leg;
+    T('t-from').textContent = o.from; T('t-to').textContent = o.to;
+    T('t-bar').style.transform = `scaleX(${o.p})`;
+    [1,2,3].forEach(j => { T('t-l'+j).textContent = o.s[j-1][0]; T('t-v'+j).textContent = o.s[j-1][1]; });
+  }
+  const plane = document.getElementById('plane'), icon = document.getElementById('plane-ic');
+  const legItems = [...document.querySelectorAll('#legs li')];
+  let lastAng = -40;
+  function placeOn(leg, t, rotate){
+    const L = leg.len*t, a = leg.path.getPointAtLength(L), b = leg.path.getPointAtLength(Math.min(leg.len, L+1.5));
+    if (rotate && L < leg.len-1) lastAng = Math.atan2(b.y-a.y, b.x-a.x)*180/Math.PI;
+    plane.setAttribute('transform', `translate(${a.x} ${a.y})`);
+    icon.setAttribute('transform', rotate ? `rotate(${lastAng})` : '');
+  }
+  const sec = document.getElementById('route'); let ticking = false;
+  function update(){
+    ticking = false;
+    const r = sec.getBoundingClientRect(), total = sec.offsetHeight - innerHeight;
+    const p = reduce ? .99 : Math.min(1, Math.max(0, -r.top/total));
+    const ph = PH.find(x => p >= x.a && p < x.b) || PH[PH.length-1];
+    const t = Math.min(1, Math.max(0, (p-ph.a)/(ph.b-ph.a)));
+    // draw legs
+    legs.forEach((l,i) => {
+      const phase = PH.find(x => x.i===i);
+      const lt = Math.min(1, Math.max(0, (p-phase.a)/(phase.b-phase.a)));
+      l.path.style.strokeDashoffset = l.len*(1-ease(lt));
+    });
+    cSIN.classList.toggle('on', ph.k==='ready' || ph.k==='home');
+    cPUS.classList.toggle('on', ph.k==='busan');
+    cSEL.classList.toggle('on', ph.k==='seoul');
+    const step = {ready:0,leg:ph.i===0?0:4,busan:1,ktx:2,seoul:3,home:4}[ph.k];
+    legItems.forEach((li,i) => { li.classList.toggle('on', i<=step); li.classList.toggle('now', i===step); });
+
+    if (ph.k==='ready'){ icon.textContent='✈'; placeOn(legs[0],0,true);
+      tele({ic:'🧳',c:'var(--ink-soft)',mode:'Ready for departure',sub:'Changi Terminal 4',leg:'Fri 15 Jan',from:'SIN',to:'PUS',p:0,
+        s:[['Be there by','21:30'],['Departs','00:25'],['Flight','7C2642']]}); }
+    else if (ph.k==='leg' && ph.i===0){ icon.textContent='✈'; const e=ease(t); placeOn(legs[0],e,true);
+      tele({ic:'✈',c:'var(--busan)',mode:'Flight 7C2642',sub:`Jeju Air, ${n(D1)} km in 6h 40m`,leg:'Leg 1 of 3',from:'SIN',to:'PUS',p:e,
+        s:[['Flown',`${n(D1*e)} km`],['In the air',hm(400*e)],['Lands','08:05 KST']]}); }
+    else if (ph.k==='busan'){ icon.textContent='🏨'; placeOn(legs[0],1,false);
+      tele({ic:'🏨',c:'var(--busan)',mode:'In Busan',sub:'Lavalse Hotel, Yeongdo',leg:'16–18 Jan',from:'PUS',to:'PUS',p:t,
+        s:[['Nights','2'],['Room','Ondol Ocean View'],['Check-out','Mon 11:00']]}); }
+    else if (ph.k==='ktx'){ icon.textContent='🚄'; const e=ease(t); placeOn(legs[1],e,false);
+      tele({ic:'🚄',c:'var(--seoul)',mode:'KTX to Seoul',sub:`High-speed rail, ~${RAIL} km in ~2h 30m`,leg:'Leg 2 of 3',from:'PUS',to:'SEL',p:e,
+        s:[['Covered',`${n(RAIL*e)} km`],['On board',hm(150*e)],['Top speed','~300 km/h']]}); }
+    else if (ph.k==='seoul'){ icon.textContent='🏠'; placeOn(legs[1],1,false);
+      tele({ic:'🏠',c:'var(--seoul)',mode:'In Seoul',sub:'Airbnb, Hongdae',leg:'18–23 Jan',from:'SEL',to:'SEL',p:t,
+        s:[['Nights','5'],['Area','Mapo-gu'],['Nearest stn','Hongik Univ.']]}); }
+    else if (ph.k==='leg'){ icon.textContent='✈'; const e=ease(t); placeOn(legs[2],e,true);
+      tele({ic:'✈',c:'var(--seoul)',mode:'Flight TW161',sub:`Trinity Airways, ${n(D3)} km in 6h 55m`,leg:'Leg 3 of 3',from:'ICN',to:'SIN',p:e,
+        s:[['Flown',`${n(D3*e)} km`],['In the air',hm(415*e)],['Lands','21:25 SGT']]}); }
+    else { icon.textContent='✈'; placeOn(legs[2],1,false); icon.setAttribute('transform','');
+      tele({ic:'🏡',c:'var(--sun)',mode:'Home',sub:'Changi T2, Sat 23 Jan, 21:25',leg:'Done',from:'SIN',to:'SIN',p:1,
+        s:[['Travelled',`${n(D1+RAIL+D3)} km`],['Days','8'],['Cities','2']]}); }
+  }
+  addEventListener('scroll', () => { if (!ticking){ ticking = true; requestAnimationFrame(update); } }, {passive:true});
+  addEventListener('resize', update); update();
 })();
 
 /* ===================== check-in timeline ===================== */
