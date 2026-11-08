@@ -177,6 +177,35 @@
   .btn:hover::after{transform:translateX(100%)}
   .fine{font-size:.88rem;color:var(--ink-soft);margin-top:14px;max-width:62ch}
 
+  /* ========== STAYS ========== */
+  .stays{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:20px;margin-top:44px}
+  .stay{background:var(--snow);border-radius:28px;overflow:hidden;display:flex;flex-direction:column}
+  .stay-head{background:var(--c);color:#fff;padding:24px 26px 22px;position:relative;overflow:hidden}
+  .stay-head::after{content:"";position:absolute;right:-30px;top:-30px;width:150px;height:150px;border-radius:50%;border:2px solid rgba(255,255,255,.25);box-shadow:0 0 0 22px rgba(255,255,255,.06),0 0 0 44px rgba(255,255,255,.04)}
+  .stay-head .pill{display:inline-block;background:rgba(255,255,255,.2);font-size:.8rem;font-weight:700;padding:4px 11px;border-radius:99px}
+  .stay-head h3{font-size:1.9rem;font-weight:800;font-stretch:80%;line-height:1;margin:12px 0 4px;letter-spacing:-.02em;text-transform:uppercase}
+  .stay-head p{opacity:.9;font-size:.95rem}
+  .stay-body{padding:20px 26px 26px;display:flex;flex-direction:column;gap:16px;flex:1}
+  .addr{display:flex;gap:12px;align-items:flex-start;justify-content:space-between;border:2px dashed var(--rule);border-radius:16px;padding:14px 16px}
+  .addr small{display:block;font-size:.78rem;font-weight:600;color:var(--ink-soft)}
+  .addr b{display:block;font-size:1.02rem;line-height:1.35}
+  .copy{flex:none;font:inherit;font-size:.82rem;font-weight:700;border:0;border-radius:99px;padding:8px 13px;background:var(--ice);color:var(--ink);cursor:pointer;transition:background .25s,color .25s,transform .2s}
+  .copy:hover{transform:translateY(-2px)}
+  .copy.ok{background:var(--busan);color:#fff}
+  .maps{display:flex;gap:10px;flex-wrap:wrap}
+  .maps a{flex:1;min-width:130px;text-align:center;text-decoration:none;font-weight:700;font-size:.92rem;padding:12px 14px;border-radius:14px;background:var(--ink);color:var(--snow);transition:transform .25s var(--ease),background .25s}
+  .maps a:hover{transform:translateY(-3px);background:#24324f}
+  .maps a.naver{background:#03c75a}
+  .maps a.naver:hover{background:#02a94c}
+  .facts{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:10px 16px}
+  .facts li small{display:block;font-size:.78rem;font-weight:600;color:var(--ink-soft)}
+  .facts li b{font-size:.98rem}
+  .how{background:var(--ice);border-radius:16px;padding:14px 16px;font-size:.93rem}
+  .how b{display:block;margin-bottom:4px}
+  .how ol{padding-left:18px;color:var(--ink-soft)}
+  .how li{margin:3px 0}
+  .how strong{color:var(--ink)}
+
   /* ========== DAYS CAROUSEL ========== */
   .days-head{display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap}
   .arrows{display:flex;gap:10px}
@@ -284,6 +313,7 @@
 <nav class="dock" id="dock" aria-label="Sections">
   <a href="#route">Route</a>
   <a href="#checkin">Check-in</a>
+  <a href="#stays">Stays</a>
   <a href="#days">Days</a>
   <a href="#weather">Weather</a>
   <a href="#pack">Packing</a>
@@ -392,6 +422,63 @@
 
     <button class="btn" id="ics" type="button" data-reveal>📅 Add these to my calendar</button>
     <p class="fine">Downloads a calendar file with every check-in that has a confirmed time, plus a reminder an hour before each one. Airline windows follow their usual policy, so check your booking emails nearer the date. Door codes and booking references are left off on purpose, since the site is public.</p>
+  </div>
+</section>
+
+<!-- ================= STAYS ================= -->
+<section id="stays">
+  <div class="wrap">
+    <h2 class="h2" data-reveal>Where we're staying</h2>
+    <p class="lede" data-reveal style="--d:100ms">Tap a map button to open directions, or copy the Korean address to show a taxi driver.</p>
+    <div class="stays">
+
+      <article class="stay" style="--c:var(--busan)" data-reveal>
+        <div class="stay-head">
+          <span class="pill">Busan, 16–18 Jan</span>
+          <h3>Lavalse Hotel</h3>
+          <p>Ondol Ocean View room with 3 futons</p>
+        </div>
+        <div class="stay-body">
+          <div class="addr"><div><small>Address</small><b>82 Bongnaenaru-ro, Yeongdo-gu, Busan</b></div><button class="copy" type="button" data-copy="82 Bongnaenaru-ro, Yeongdo-gu, Busan">Copy</button></div>
+          <div class="addr"><div><small>For the taxi driver</small><b>부산 영도구 봉래나루로 82, 라발스호텔</b></div><button class="copy" type="button" data-copy="부산 영도구 봉래나루로 82">Copy</button></div>
+          <div class="maps">
+            <a href="https://www.google.com/maps/search/?api=1&query=Lavalse+Hotel+82+Bongnaenaru-ro+Yeongdo-gu+Busan" target="_blank" rel="noopener">Google Maps</a>
+            <a class="naver" href="https://map.naver.com/p/search/%EB%9D%BC%EB%B0%9C%EC%8A%A4%ED%98%B8%ED%85%94" target="_blank" rel="noopener">Naver Map</a>
+          </div>
+          <ul class="facts">
+            <li><small>Check-in</small><b>Sat 16 Jan, 15:00</b></li>
+            <li><small>Check-out</small><b>Mon 18 Jan, 11:00</b></li>
+          </ul>
+          <div class="how"><b>Getting there from Gimhae Airport</b>
+            <ol><li>Light rail to <strong>Sasang</strong></li><li>Line 2 to <strong>Seomyeon</strong>, then Line 1 to <strong>Nampo</strong></li><li>Exit 6, then about 10 minutes' walk over Yeongdo Bridge</li></ol>
+          </div>
+        </div>
+      </article>
+
+      <article class="stay" style="--c:var(--seoul)" data-reveal style="--d:120ms">
+        <div class="stay-head">
+          <span class="pill">Seoul, 18–23 Jan</span>
+          <h3>Hongdae Airbnb</h3>
+          <p>3rd floor, 4 minutes from Hongik Univ. Station</p>
+        </div>
+        <div class="stay-body">
+          <div class="addr"><div><small>Address</small><b>3rd floor, 5 Wausan-ro 29Ma-gil, Mapo-gu, Seoul</b></div><button class="copy" type="button" data-copy="3rd floor, 5 Wausan-ro 29Ma-gil, Mapo-gu, Seoul">Copy</button></div>
+          <div class="addr"><div><small>For the taxi driver</small><b>서울특별시 마포구 서교동 333-30, 3층</b></div><button class="copy" type="button" data-copy="서울특별시 마포구 서교동 333-30">Copy</button></div>
+          <div class="maps">
+            <a href="https://maps.app.goo.gl/tjWr6i8aYgVmjhCZ6" target="_blank" rel="noopener">Google Maps</a>
+            <a class="naver" href="https://naver.me/xAVmisLl" target="_blank" rel="noopener">Naver Map</a>
+          </div>
+          <ul class="facts">
+            <li><small>Check-in</small><b>Mon 18 Jan <span class="todo">time to add</span></b></li>
+            <li><small>Check-out</small><b>Sat 23 Jan <span class="todo">time to add</span></b></li>
+          </ul>
+          <div class="how"><b>Getting there</b>
+            <ol><li>Take the <strong>regular (all-stop) AREX</strong>, not the express. The express doesn't stop at Hongik Univ.</li><li>Get off at <strong>Hongik University Station</strong> and leave by <strong>Exit 7</strong></li><li>4 minutes' walk. The flat is on the 3rd floor.</li></ol>
+          </div>
+        </div>
+      </article>
+
+    </div>
   </div>
 </section>
 
@@ -508,7 +595,7 @@ const CHECKINS = [
     note:"Then a 10-minute taxi to Busan Station for the KTX." },
   { when:null, day:"Mon 18 Jan", time:"TBC", c:"seoul", todo:true,
     title:"Check in at the Hongdae Airbnb",
-    note:"5 Wausan-ro 29ma-gil, Mapo-gu. Add the check-in time and how we get in (keypad, lockbox or meeting the host), but not the code itself." },
+    note:"3rd floor, 5 Wausan-ro 29Ma-gil, Mapo-gu. Use Exit 7 at Hongik University Station, then it's a 4-minute walk. Still need the check-in time and how we get in (keep the door code off this page)." },
   { when:"2027-01-22T15:30:00+09:00", day:"Fri 22 Jan", time:"15:30", c:"seoul",
     title:"Trinity Airways online check-in opens",
     note:"For TW161. Online check-in usually runs from 24 hours to 1 hour before departure. If it isn't available for this route, use a kiosk at the airport." },
@@ -517,7 +604,7 @@ const CHECKINS = [
     note:"Add the check-out time and what the host wants done with the keys." },
   { when:"2027-01-23T12:30:00+09:00", day:"Sat 23 Jan", time:"12:30", c:"seoul",
     title:"Be at Incheon Terminal 1",
-    note:"Counters usually close 1 hour before departure, at 14:30. The all-stop airport train from Hongik Univ. takes about an hour, so leave by 11:30." },
+    note:"Counters usually close 1 hour before departure, at 14:30. The host says the regular (all-stop) AREX between Hongik Univ. and Incheon takes 50–60 minutes, so leave by 11:30." },
   { when:"2027-01-23T15:30:00+09:00", day:"Sat 23 Jan", time:"15:30", c:"seoul", noCal:true,
     title:"Fly home on Trinity Airways TW161", note:"Lands at Changi T2 at 21:25." }
 ];
@@ -540,7 +627,7 @@ const DAYS = [
   { date:"2027-01-18", c:"seoul", city:"Busan → Seoul", title:"Fast train north", sleep:"Hongdae Airbnb", stops:[
     ["11:00","Check out of Lavalse","Taxi to Busan Station."],
     ["Midday","KTX to Seoul","About 2.5 hours. Add the train time once it's booked.","todo"],
-    ["Afternoon","Airport train to Hongdae","All-stop AREX from Seoul Station to Hongik Univ."],
+    ["Afternoon","Airport train to Hongdae","Regular (all-stop) AREX from Seoul Station to Hongik Univ. Leave by Exit 7, then walk 4 minutes to the 3rd-floor flat."],
     ["Evening","Hongdae night","Buskers, Korean BBQ and late-night shopping."]
   ]},
   { date:"2027-01-19", c:"seoul", city:"Seoul", title:"Palaces & old Seoul", sleep:"Hongdae Airbnb", stops:[
@@ -565,7 +652,7 @@ const DAYS = [
   ]},
   { date:"2027-01-23", c:"ink", city:"Seoul → Singapore", title:"Homeward", sleep:"Home", stops:[
     ["Morning","Check out of the Airbnb","Add the check-out time.","todo"],
-    ["11:30","Airport train to Incheon T1","About an hour."],
+    ["11:30","Airport train to Incheon T1","Regular (all-stop) AREX from Hongik Univ. Exit 7, 50–60 minutes. The express doesn't stop here."],
     ["15:30","Fly home on TW161","Lands at Changi at 21:25."]
   ]}
 ];
@@ -843,8 +930,8 @@ $('#marq').innerHTML = [...HIGHLIGHTS, ...HIGHLIGHTS].map(h => `<span>${esc(h)}<
       tele({ic:'🚄',c:'var(--seoul)',mode:'KTX to Seoul',sub:`High-speed rail, ~${RAIL} km in ~2h 30m`,leg:'Leg 2 of 3',from:'PUS',to:'SEL',p:e,
         s:[['Covered',`${n(RAIL*e)} km`],['On board',hm(150*e)],['Top speed','~300 km/h']]}); }
     else if (ph.k==='seoul'){ icon.textContent='🏠'; placeOn(legs[1],1,false);
-      tele({ic:'🏠',c:'var(--seoul)',mode:'In Seoul',sub:'Airbnb, Hongdae',leg:'18–23 Jan',from:'SEL',to:'SEL',p:t,
-        s:[['Nights','5'],['Area','Mapo-gu'],['Nearest stn','Hongik Univ.']]}); }
+      tele({ic:'🏠',c:'var(--seoul)',mode:'In Seoul',sub:'Airbnb, 4 min from Hongik Univ.',leg:'18–23 Jan',from:'SEL',to:'SEL',p:t,
+        s:[['Nights','5'],['Area','Mapo-gu'],['Station','Hongik Univ. Exit 7']]}); }
     else if (ph.k==='leg'){ icon.textContent='✈'; const e=ease(t); placeOn(legs[2],e,true);
       tele({ic:'✈',c:'var(--seoul)',mode:'Flight TW161',sub:`Trinity Airways, ${n(D3)} km in 6h 55m`,leg:'Leg 3 of 3',from:'ICN',to:'SIN',p:e,
         s:[['Flown',`${n(D3*e)} km`],['In the air',hm(415*e)],['Lands','21:25 SGT']]}); }
@@ -888,6 +975,15 @@ $('#ics').addEventListener('click', () => {
   const a = Object.assign(document.createElement('a'), {href:URL.createObjectURL(new Blob([ics],{type:'text/calendar'})), download:'korea-2027-checkins.ics'});
   document.body.appendChild(a); a.click(); a.remove();
 });
+
+/* ===================== copy address buttons ===================== */
+$$('.copy').forEach(b => b.addEventListener('click', async () => {
+  const txt = b.dataset.copy;
+  try { await navigator.clipboard.writeText(txt); }
+  catch(e){ const t = Object.assign(document.createElement('textarea'), {value:txt}); document.body.appendChild(t); t.select(); try{document.execCommand('copy');}catch(_){} t.remove(); }
+  b.textContent = 'Copied ✓'; b.classList.add('ok');
+  clearTimeout(b._t); b._t = setTimeout(() => { b.textContent = 'Copy'; b.classList.remove('ok'); }, 1600);
+}));
 
 /* ===================== day cards ===================== */
 (function(){
